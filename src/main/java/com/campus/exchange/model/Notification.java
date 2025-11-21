@@ -1,5 +1,12 @@
 package com.campus.exchange.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Notification {
     private String id;      //unique id of the notification
     private String UserId;  // id of the recipient
