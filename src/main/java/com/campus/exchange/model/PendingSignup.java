@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor             //lombok annotation that creates the all parameter constructor.
 public class PendingSignup
 {
-    private String mail;        //email of the user
+    private String email;        //email of the user
 
     private String name;        //real name of the user
     private String hashPassword;//hashed password for login
