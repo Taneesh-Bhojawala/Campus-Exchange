@@ -2,30 +2,30 @@ package com.campus.exchange.repository;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.core.type.TypeReference;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
 
-@Configuration
+@Component
 public class JsonUtils
 {
     /*Used to convert json to java object and vice versa*/
-    private final ObjectMapper mapper = new ObjectMapper();
+    private ObjectMapper mapper = new ObjectMapper();
 
     /*Locks object for synchronization, only 1 can change file at a time*/
-    private final Object filelock = new Object();
+    private Object fileLock = new Object();
 
-    /*Just like the templates in cpp, T is the place holder for the type*/
+    /*Just like the templates in cpp, T is the placeholder for the type eg User, Claim, Item
+    * Reads and returns all data from the JSON file as a List<T>*/
     public <T> List<T> readList(String filePath, TypeReference<List<T>> typeRef)
     {
-        synchronized (filePath)
+        synchronized (fileLock)
         {
             try
             {
@@ -51,7 +51,7 @@ public class JsonUtils
 
     public <T> void writeList(String filePath, List<T> data)
     {
-        synchronized (filePath)
+        synchronized (fileLock)
         {
             try
             {
