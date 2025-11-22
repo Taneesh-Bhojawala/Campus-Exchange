@@ -16,6 +16,7 @@ import java.util.List;
  * Functions performed:
  * Read all notifications from JSON
  * Find all notifications of a particular user using userId
+ * update notification read = true once read by the receiver
  *
  * This repository does NOT perform any logic.
  * This class only performs JSON read/write operations.
@@ -46,5 +47,15 @@ public class NotificationRepositoryJson {
         return result;
     }
 
+    public void updateNotification(String notificationId) throws IOException{
+        List<Notification> list = this.findAll();
+        for(int idx = 0;idx<list.size();idx++){
+            if(list.get(idx).getId().equals(notificationId)){
+                list.get(idx).setRead(true);
+                json.writeList(path,list);
+                return;
+            }
+        }
+    }
 
 }
