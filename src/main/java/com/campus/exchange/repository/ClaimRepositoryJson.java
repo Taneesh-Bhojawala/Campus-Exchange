@@ -36,15 +36,16 @@ public class ClaimRepositoryJson {
         }
         return Optional.empty();
     }
-    public List<Claim> findByItemID(String itemID){
+    public Optional<Claim> findByItemID(String itemID){
         List<Claim> claimList = findAll();
-        List<Claim> result = new ArrayList<>();
+//        Claim result = new ArrayList<>();
         for(Claim claim: claimList){
             if(claim.getClaimID().equals(itemID)){
-                result.add(claim);
+//                result.add(claim);
+                return Optional.of(claim);
             }
         }
-        return result;
+        return Optional.empty();
     }
     public List<Claim> findByClaimerId(String claimerId) {
         List<Claim> result = new ArrayList<>();
