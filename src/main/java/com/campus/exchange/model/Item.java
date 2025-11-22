@@ -21,7 +21,4 @@ public class Item {
     private String imagePath;   // path to the image of the item uploaded
     private String Status;      //CLAIMED,LISTED,PENDING(in process)
     private long createdAt;     // Epoch millis at creation time
-
-    private String hostelNumber;// hostel number of the lister
-    private String gender;      // gender of the lister
 }
