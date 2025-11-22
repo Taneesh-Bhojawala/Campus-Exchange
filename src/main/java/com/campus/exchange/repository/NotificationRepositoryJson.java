@@ -28,7 +28,7 @@ public class NotificationRepositoryJson {
     private final TypeReference<List<Notification>> type = new TypeReference<>() {};
 
     public NotificationRepositoryJson(AppProperties props, JsonUtils jsonUtils){
-        this.path = String.valueOf(Path.of(props.getDataFolder(), "items.json"));
+        this.path = String.valueOf(Path.of(props.getDataFolder(), "notifications.json"));
         this.json =  jsonUtils;
     }
 

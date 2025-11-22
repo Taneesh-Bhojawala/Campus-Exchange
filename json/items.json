@@ -1,1 +1,12 @@
-[]
+[ {
+  "itemId" : "83804c88-f8ce-4c7b-8ea0-7bd03f11be1f",
+  "listerId" : "210bacf5-a811-4c64-9a9e-b089e095f742",
+  "quantity" : 1,
+  "title" : "study table",
+  "description" : "maa chuda",
+  "category" : "furniture",
+  "price" : 1000.0,
+  "imagePath" : "/uploads/311f5354-520f-46f1-af3c-4a51d4560318.jpg",
+  "createdAt" : 1763835309098,
+  "status" : "PENDING"
+} ]
