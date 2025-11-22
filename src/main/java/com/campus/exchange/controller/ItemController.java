@@ -1,5 +1,6 @@
 package com.campus.exchange.controller;
 
+import com.campus.exchange.dto.ItemCreateRequest;
 import com.campus.exchange.model.Item;
 import com.campus.exchange.service.FileStorageService;
 import com.campus.exchange.service.ItemService;
@@ -25,28 +26,12 @@ public class ItemController {
     }
     @PostMapping(consumes = {"multipart/form-data"})
     public ResponseEntity<?> createItem(
-            @RequestParam String listerId,
-            @RequestParam int quantity,
-            @RequestParam String title,
-            @RequestParam String description,
-            @RequestParam String category,
-            @RequestParam Double price,
-            @RequestPart MultipartFile image
-    ){
+            @RequestBody ItemCreateRequest itemCreateRequest
+            ){
         try{
-            String imagePath = storage.store(image);
 
-            Item item = new Item();
-            item.setItemId(UUID.randomUUID().toString());
-            item.setListerId(listerId);
-            item.setQuantity(quantity);
-            item.setTitle(title);
-            item.setDescription(description);
-            item.setCategory(category);
-            item.setPrice(price);
-            item.setImagePath(imagePath);
 
-            Item created = itemService.createItem(item);
+            Item created = itemService.createItem(itemCreateRequest);
             return ResponseEntity.status(201).body(created);
         }catch (IOException e) {
             return ResponseEntity.status(500).body("Error saving item: " + e.getMessage());

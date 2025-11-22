@@ -6,10 +6,12 @@ import lombok.Data;
 @Data
 public class ItemCreateRequest {
     private String listerUserId;
+    private int quantity;
     private String title;
     private String description;
     private String category;
     private double price;
-    private String hostelNumber;
-    private String gender;
+    private String imagePath;
+    private String status;
+    private long createdAt;
 }
