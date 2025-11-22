@@ -28,7 +28,7 @@ public class ItemService {
         return item;
     }
 
-    public List<Item> Filter(String category) throws IOException{
+    public List<Item> filter(String category) throws IOException{
         List<Item> list = itemRepo.findAll();
         List<Item> filteredItems = new ArrayList<>();
 
