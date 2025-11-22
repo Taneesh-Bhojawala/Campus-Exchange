@@ -20,7 +20,7 @@ public class JsonUtils
     private final ObjectMapper mapper = new ObjectMapper();
 
     /*Locks object for synchronization, only 1 can change file at a time*/
-    private final Object flielock = new Object();
+    private final Object filelock = new Object();
 
     /*Just like the templates in cpp, T is the place holder for the type*/
     public <T> List<T> readList(String filePath, TypeReference<List<T>> typeRef)
@@ -49,17 +49,17 @@ public class JsonUtils
         }
     }
 
-    public <T> void writeList(String fliePath, List<T> data)
+    public <T> void writeList(String filePath, List<T> data)
     {
-        synchronized (fliePath)
+        synchronized (filePath)
         {
             try
             {
                 /*first load the file into a temp file, make the changes there and then update the main file so
                 * that if write fails due to any problem, the original file is safe and does not get corrupted.
                 * after successful write to the temp file, it is then moved to main file*/
-                Path path = Path.of(fliePath);
-                Path tempPath = Path.of(fliePath + ".tmp");
+                Path path = Path.of(filePath);
+                Path tempPath = Path.of(filePath + ".tmp");
 
                 mapper.writerWithDefaultPrettyPrinter().writeValue(tempPath.toFile(), data);
 
