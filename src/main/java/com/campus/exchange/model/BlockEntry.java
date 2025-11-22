@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BlockEntry {
-    private String itemID;
-    private String userID;
-    private long blockedUntil;
+    private String itemID;//stores the id of the item which is blocked
+    private String userID;//stores the id of user
+    private long blockedUntil;//stores until what time do we need to keep a particular user blocked for that object.
 }
