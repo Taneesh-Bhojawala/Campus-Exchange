@@ -3,6 +3,7 @@ package com.campus.exchange.repository;
 import com.campus.exchange.config.AppProperties;
 import com.campus.exchange.model.Notification;
 import com.fasterxml.jackson.core.type.TypeReference;
+import org.springframework.stereotype.Repository;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -20,6 +21,7 @@ import java.util.List;
  * This repository does NOT perform any logic.
  * This class only performs JSON read/write operations.
  */
+@Repository
 public class NotificationRepositoryJson {
     private final JsonUtils json;
     private final String path;
