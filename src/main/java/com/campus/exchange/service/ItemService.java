@@ -71,4 +71,7 @@ public class ItemService {
         }
         return listedItem;
     }
+    public List<Item> getAllItems() throws IOException{
+        return itemRepo.findAll();
+    }
 }
