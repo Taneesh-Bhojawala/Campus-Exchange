@@ -46,14 +46,16 @@ public class NotificationService {
         if(lister.isEmpty() || claimer.isEmpty()){
             return;
         }
-        String messageToLister = "You accepted " + claimer.get().getName() +  " claim on " +itemTitle + ".\n" +
-                "They can now contact you at " + lister.get().getEmail()+ ".\n" +
-                "Their email: "+ claimer.get().getEmail()+ ".";
+        String messageToLister = "You accepted " + claimer.get().getName() +  " claim on " +itemTitle + " .\n" +
+                "They can now contact you at " + lister.get().getEmail()+ " .\n" +
+                "Their email: "+ claimer.get().getEmail()+ " .\n" +
+                "Their hostel number: " + claimer.get().getHostelNumber() + " .";
         Notification listerNotification = new Notification(UUID.randomUUID().toString(),listerId,"CLAIM_ACCEPTED",
                 "Claim Accepted Successfully",messageToLister,
                 System.currentTimeMillis(),false);
         String messageToClaimer = "Good news! Your claim on " + itemTitle + " has been accepted.\n" +
-                "You may now contact the owner at: " + lister.get().getEmail() + " to coordinate pickup.";
+                "You may now contact the owner at: " + lister.get().getEmail() + " to coordinate pickup.\n" +
+                "Their hostel number: " + claimer.get().getHostelNumber() + " .\n";
         Notification claimerNotification = new Notification(UUID.randomUUID().toString(),claimerId,"CLAIM_ACCEPTED",
                 "Claim Accepted!",messageToClaimer,
                 System.currentTimeMillis(), false);
