@@ -1,4 +1,115 @@
 package com.campus.exchange.service;
 
+import com.campus.exchange.model.Item;
+import com.campus.exchange.model.PendingSignup;
+import com.campus.exchange.repository.ItemRepositoryJson;
+import com.campus.exchange.repository.PendingSignupRepositoryJson;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Service;
+
+import java.io.IOException;
+import java.time.Instant;
+import java.util.List;
+
+/**
+ * ExpirationService:
+ * - Expires item listings automatically after 5 minutes (sets status = "EXPIRED" and notifies owner)
+ * - Deletes pending signup entries older than 5 minutes (if OTP not verified)
+ *
+ * This class uses a scheduled task that runs every minute and performs both cleanup tasks.
+ */
+@Service
 public class ExpirationService {
+
+    private final ItemRepositoryJson itemRepository;
+    private final PendingSignupRepositoryJson pendingSignupRepository;
+    private final NotificationService notificationService;
+
+    private static final long EXPIRATION_MS = 5L * 60L * 1000L; //5 minutes
+
+    public ExpirationService(ItemRepositoryJson itemRepository,
+                             PendingSignupRepositoryJson pendingSignupRepository,
+                             NotificationService notificationService) {
+        this.itemRepository = itemRepository;
+        this.pendingSignupRepository = pendingSignupRepository;
+        this.notificationService = notificationService;
+    }
+
+    /**
+    Scheduler runs every minute. Runs both functions. They both check time stamps.
+     */
+    @Scheduled(fixedDelayString = "${app.expiration.check-interval-ms:60000}")
+    public void scheduledExpiryTask() {
+        expireOldItems();
+        cleanupPendingSignups();
+    }
+
+    /**
+     * Expires items older than EXPIRATION_MS (Here 5 minutes).
+     * Marks them with status "EXPIRED", updates the repository, and notifies the lister.
+     */
+    public void expireOldItems() {
+        try {
+            List<Item> items = itemRepository.findAll();
+            long now = Instant.now().toEpochMilli();
+
+            for (Item item : items) {
+                String status = item.getStatus();
+                if (status == null) continue;
+
+                boolean candidate = "ACTIVE".equalsIgnoreCase(status) || "WAITING".equalsIgnoreCase(status);
+                if (!candidate) continue;
+
+                long createdAt = item.getCreatedAt(); // epoch millis
+                if (now - createdAt >= EXPIRATION_MS) {
+                    // mark expired
+                    item.setStatus("EXPIRED");
+                    itemRepository.update(item);
+
+                    // notify owner
+                    try {
+                        notificationService.notifyItemExpired(item.getItemId(), item.getListerId(), item.getTitle());
+                    } catch (IOException e) {
+                        // don't fail the entire loop for a single notification failure
+                        e.printStackTrace();
+                    }
+                }
+            }
+        } catch (IOException e) {
+            // repository read/write error
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Deletes pending signups whose expiresAt <= now (OTP not verified in time).
+     * We rely on PendingSignup.expiresAt being set by AuthService when OTP is created.
+     */
+    public void cleanupPendingSignups() {
+        try {
+            List<PendingSignup> pendings = pendingSignupRepository.findAll();
+            long now = Instant.now().toEpochMilli();
+
+            for (PendingSignup p : pendings) {
+                // If expiresAt is not set, skip. AuthService should set expiresAt when creating OTP.
+                long expiresAt = p.getExpiresAt();
+                if (expiresAt <= 0) continue;
+
+                if (expiresAt <= now) {
+                    // remove pending entry (user didn't verify OTP in time)
+                    try {
+                        pendingSignupRepository.deleteByEmail(p.getMail());
+                        // optional: print/log so you can demonstrate deletion in console
+                        System.out.println("[ExpirationService] Deleted pending signup for " + p.getMail());
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
+
+
