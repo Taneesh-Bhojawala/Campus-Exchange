@@ -139,5 +139,4 @@ public class ClaimService {
         itemRepositoryJson.update(item);
         return item;
     }
-
 }
