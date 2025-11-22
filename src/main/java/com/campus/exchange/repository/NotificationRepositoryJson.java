@@ -48,6 +48,11 @@ public class NotificationRepositoryJson {
         return result;
     }
 
+    public void addNotification(Notification notification) throws IOException{
+        List<Notification> list = this.findAll();
+        list.add(notification);
+        json.writeList(path,list);
+    }
     public void updateNotification(String notificationId) throws IOException{
         List<Notification> list = this.findAll();
         for(int idx = 0;idx<list.size();idx++){
