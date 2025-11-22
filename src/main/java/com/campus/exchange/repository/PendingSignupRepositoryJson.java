@@ -54,7 +54,7 @@ public class PendingSignupRepositoryJson
         List<PendingSignup> pendingUsers = findAll();
         for(PendingSignup pendingUser : pendingUsers)
         {
-            if(pendingUser.getMail().equals(email))
+            if(pendingUser.getEmail().equals(email))
             {
                 return Optional.of(pendingUser);
             }
@@ -65,7 +65,7 @@ public class PendingSignupRepositoryJson
     public void deleteByEmail(String email) throws IOException
     {
         List<PendingSignup> pendingUsers = findAll();
-        pendingUsers.removeIf(p -> p.getMail().equals(email));
+        pendingUsers.removeIf(p -> p.getEmail().equals(email));
         jsonUtils.writeList(pendingFilePath(), pendingUsers);
     }
 }
