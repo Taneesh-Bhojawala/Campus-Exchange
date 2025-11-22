@@ -9,7 +9,6 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
-
 /**
  * Repository for handling Notification data stored in notifications.json.
  *
