@@ -12,6 +12,9 @@ import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
 
+/*this is so that only 1 instance of this is class is made and Spring manages it, can be injected where ever required
+* using constructor injection. if this was not done, every file in repository dir would contain individual objects of
+* JsonUtils*/
 @Component
 public class JsonUtils
 {
@@ -66,6 +69,8 @@ public class JsonUtils
                 Files.move(tempPath, path, StandardCopyOption.REPLACE_EXISTING, StandardCopyOption.ATOMIC_MOVE);
             }
 
+            /*It is the special exception type for the input output like file not found, no permission,
+            * disk space full, etc. The methods provided by java.nio.file.Path throws objects of these types.*/
             catch (IOException e)
             {
                 e.printStackTrace();
