@@ -21,6 +21,7 @@ public class ItemService {
 
     public Item createItem(ItemCreateRequest request) throws IOException{
         Item item = new Item(UUID.randomUUID().toString(),request.getListerUserId(), request.getQuantity(), request.getTitle(), request.getDescription(), request.getCategory(), request.getPrice(), request.getImagePath(), "LISTED",System.currentTimeMillis());
+        itemRepo.save(item);
         return item;
     }
 
