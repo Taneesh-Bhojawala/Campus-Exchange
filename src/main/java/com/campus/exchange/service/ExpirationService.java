@@ -7,7 +7,7 @@ import com.campus.exchange.repository.PendingSignupRepositoryJson;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
+//import java.io.IOException;
 import java.time.Instant;
 import java.util.List;
 
@@ -63,19 +63,20 @@ public class ExpirationService {
                 long createdAt = item.getCreatedAt(); // epoch millis
                 if (now - createdAt >= EXPIRATION_MS) {
                     // mark expired
-                    item.setStatus("EXPIRED");
-                    itemRepository.update(item);
+//                    item.setStatus("EXPIRED");
+//                    itemRepository.update(item);
 
                     // notify owner
                     try {
                         notificationService.notifyItemExpired(item.getItemId(), item.getListerId(), item.getTitle());
-                    } catch (IOException e) {
+                        itemRepository.deleteById(item.getItemId());
+                    } catch (Exception e) {
                         // don't fail the entire loop for a single notification failure
                         e.printStackTrace();
                     }
                 }
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             // repository read/write error
             e.printStackTrace();
         }
@@ -98,18 +99,16 @@ public class ExpirationService {
                 if (expiresAt <= now) {
                     // remove pending entry (user didn't verify OTP in time)
                     try {
-                        pendingSignupRepository.deleteByEmail(p.getMail());
+                        pendingSignupRepository.deleteByEmail(p.getEmail());
                         // optional: print/log so you can demonstrate deletion in console
-                        System.out.println("[ExpirationService] Deleted pending signup for " + p.getMail());
-                    } catch (IOException ex) {
+                        System.out.println("[ExpirationService] Deleted pending signup for " + p.getEmail());
+                    } catch (Exception ex) {
                         ex.printStackTrace();
                     }
                 }
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 }
-
-
