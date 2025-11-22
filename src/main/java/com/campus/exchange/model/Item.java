@@ -11,6 +11,7 @@ public class Item {
     private String itemId;      //unique(UUID) id of the  item
     private String listerId;    //unique(UUID) id of the lister
 
+    private String quantity;    //quantity of the item
     private String title;       //title/name of the item
     private String description; //description of the item
 
