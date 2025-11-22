@@ -25,7 +25,7 @@ public class ExpirationService {
     private final PendingSignupRepositoryJson pendingSignupRepository;
     private final NotificationService notificationService;
 
-    private static final long EXPIRATION_MS = 5L * 60L * 1000L; //5 minutes
+    private static final long EXPIRATION_MS = 10L * 10L * 100L;
 
     public ExpirationService(ItemRepositoryJson itemRepository,
                              PendingSignupRepositoryJson pendingSignupRepository,
@@ -38,8 +38,9 @@ public class ExpirationService {
     /**
     Scheduler runs every minute. Runs both functions. They both check time stamps.
      */
-    @Scheduled(fixedDelayString = "${app.expiration.check-interval-ms:60000}")
+    @Scheduled(fixedDelayString = "${app.expiration.check-interval-ms:30000}")
     public void scheduledExpiryTask() {
+//        System.out.println("Scheduling expiry task");
         expireOldItems();
         cleanupPendingSignups();
     }
@@ -51,25 +52,24 @@ public class ExpirationService {
     public void expireOldItems() {
         try {
             List<Item> items = itemRepository.findAll();
-            long now = Instant.now().toEpochMilli();
+
 
             for (Item item : items) {
                 String status = item.getStatus();
                 if (status == null) continue;
 
-                boolean candidate = "ACTIVE".equalsIgnoreCase(status) || "WAITING".equalsIgnoreCase(status);
+                boolean candidate = "LISTED".equalsIgnoreCase(status) || "PENDING".equalsIgnoreCase(status);
                 if (!candidate) continue;
-
+                long now = Instant.now().toEpochMilli();
                 long createdAt = item.getCreatedAt(); // epoch millis
                 if (now - createdAt >= EXPIRATION_MS) {
                     // mark expired
-//                    item.setStatus("EXPIRED");
-//                    itemRepository.update(item);
+                    itemRepository.deleteById(item.getItemId());
 
                     // notify owner
                     try {
                         notificationService.notifyItemExpired(item.getItemId(), item.getListerId(), item.getTitle());
-                        itemRepository.deleteById(item.getItemId());
+
                     } catch (Exception e) {
                         // don't fail the entire loop for a single notification failure
                         e.printStackTrace();
