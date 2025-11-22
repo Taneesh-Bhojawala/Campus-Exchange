@@ -50,5 +50,25 @@ public class ItemService {
         return Optional.empty();
     }
 
+    public void updateStatus(String status, String itemId) throws IOException{
+        List<Item> list = itemRepo.findAll();
+        for(int idx =0;idx<list.size();idx++){
+            if(list.get(idx).getItemId().equals(itemId)){
+                list.get(idx).setStatus(status);
+                itemRepo.update(list.get(idx));
+                return;
+            }
+        }
+    }
+    public List<Item> ListedItems(String userId) throws IOException{
+        List<Item> list = itemRepo.findAll();
+        List<Item> listedItem = new ArrayList<>();
 
+        for(Item item : list){
+            if(item.getListerId().equals(userId)){
+                listedItem.add(item);
+            }
+        }
+        return listedItem;
+    }
 }
