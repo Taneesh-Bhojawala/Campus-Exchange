@@ -64,12 +64,12 @@ public class User {
      */
     private boolean enabled;
 
-    /**
-     * How the user authenticated.
-     *
-     * For project:
-     * "LOCAL" (password + OTP)
-     * Google authentication can be added in future
-     */
-    private String authProvider;
+//    /**
+//     * How the user authenticated.
+//     *
+//     * For project:
+//     * "LOCAL" (password + OTP)
+//     * Google authentication can be added in future
+//     */
+//    private String authProvider;
 }
