@@ -19,6 +19,6 @@ public class Item {
     private double price;       // price of the item
 
     private String imagePath;   // path to the image of the item uploaded
-    private String Status;      //CLAIMED,LISTED,PENDING(in process)
+    private String status;      //CLAIMED,LISTED,PENDING(in process)
     private long createdAt;     // Epoch millis at creation time
 }
