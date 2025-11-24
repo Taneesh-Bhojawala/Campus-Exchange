@@ -39,7 +39,7 @@ public class ClaimService {
         }
         Item item = itemOptional.get();
         //now we will check if that item is available for listing
-        if(!item.getStatus().equals("ACTIVE")){
+        if(!item.getStatus().equals("LISTED")){
             throw new IllegalAccessException("This item is not available for claiming/listing");
         }
 
@@ -65,13 +65,13 @@ public class ClaimService {
         *
         * */
 
-        notificationService.NotifyClaimCreated(itemID,claim.getListerID(),claim.getClaimerID(),item.getTitle());
+        notificationService.NotifyClaimCreated(itemID,claim.getListerId(),claim.getClaimerId(),item.getTitle());
         return claim;
     }
 
     public Claim acceptClaim(Claim claim) throws Exception{
-        String itemID = claim.getClaimID();
-        Optional<Claim>claimOptional = claimRepositoryJson.findByItemID(itemID);
+        String itemID = claim.getItemId();
+        Optional<Claim>claimOptional = claimRepositoryJson.findByItemId(itemID);
         if(claimOptional.isEmpty()){
             throw new Exception("Claim not found.");
         }
@@ -94,12 +94,12 @@ public class ClaimService {
             throw new NoSuchElementException("Item not found!");
         }
         Item item = itemOptional.get();
-        notificationService.notifyClaimAccepted(itemID,claim.getListerID(),claim.getClaimerID(),item.getTitle());
+        notificationService.notifyClaimAccepted(itemID,claim.getListerId(),claim.getClaimerId(),item.getTitle());
         return claim1;
     }
     public Claim rejectClaim(Claim claim) throws Exception{
-        String itemID = claim.getClaimID();
-        Optional<Claim>claimOptional = claimRepositoryJson.findByItemID(itemID);
+        String itemID = claim.getItemId();
+        Optional<Claim>claimOptional = claimRepositoryJson.findByItemId(itemID);
         if(claimOptional.isEmpty()){
             throw new Exception("Claim not found.");
         }
@@ -115,12 +115,12 @@ public class ClaimService {
             throw new NoSuchElementException("Item not found!");
         }
         Item item = itemOptional.get();
-        notificationService.notifyClaimRejected(itemID,claim.getListerID(),claim.getClaimerID(),item.getTitle());
+        notificationService.notifyClaimRejected(itemID,claim.getListerId(),claim.getClaimerId(),item.getTitle());
         return claim1;
     }
 
     public void relistClaim(Claim claim) throws Exception{
-        String itemID = claim.getClaimID();
+        String itemID = claim.getClaimId();
         Optional<Item> OptionalItem = itemRepositoryJson.findById(itemID);
 //        Optional<Claim>claimOptional = claimRepositoryJson.findByItemID(itemID);
         if(OptionalItem.isEmpty()){
@@ -135,7 +135,7 @@ public class ClaimService {
         * */
         long SEVEN_DAYS_TIME = 7L * 24 * 60 * 60 * 1000;
         long timeBlockedUntil = SEVEN_DAYS_TIME + System.currentTimeMillis();
-        BlockEntry userBlocked = new BlockEntry(itemID,claim.getClaimerID(),timeBlockedUntil);
+        BlockEntry userBlocked = new BlockEntry(itemID,claim.getClaimerId(),timeBlockedUntil);
         blockRepositoryJson.addBlockedUser(userBlocked);
     }
     public void completeDeal(String itemID) throws Exception{
@@ -147,5 +147,15 @@ public class ClaimService {
 //        item.setStatus("CLAIMED");
 //        itemRepositoryJson.update(item);
         itemService.updateStatus("CLAIMED",itemID);
+    }
+    public List<Claim> getAllClaims(String listerID){
+        List<Claim> claimList = claimRepositoryJson.findAll();
+        List<Claim> claimList1 = new ArrayList<>();
+        for(Claim claim:claimList){
+            if(claim.getListerID().equals(listerID)){
+                claimList1.add(claim);
+            }
+        }
+        return claimList1;
     }
 }

@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 public class Item {
     private String itemId;      //unique(UUID) id of the  item
     private String listerId;    //unique(UUID) id of the lister
+    private String college;     // college name of the lister
 
     private int quantity;    //quantity of the item
     private String title;       //title/name of the item

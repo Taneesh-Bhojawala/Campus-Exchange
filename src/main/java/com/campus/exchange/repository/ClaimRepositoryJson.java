@@ -30,17 +30,17 @@ public class ClaimRepositoryJson {
     public Optional<Claim> findByID(String claimID){
         List<Claim> claimList = findAll();
         for(Claim claim: claimList){
-            if(claim.getClaimID().equals(claimID)){
+            if(claim.getClaimId().equals(claimID)){
                 return Optional.of(claim);
             }
         }
         return Optional.empty();
     }
-    public Optional<Claim> findByItemID(String itemID){
+    public Optional<Claim> findByItemId(String itemID){
         List<Claim> claimList = findAll();
 //        Claim result = new ArrayList<>();
         for(Claim claim: claimList){
-            if(claim.getClaimID().equals(itemID)){
+            if(claim.getItemId().equals(itemID)){
 //                result.add(claim);
                 return Optional.of(claim);
             }
@@ -51,7 +51,7 @@ public class ClaimRepositoryJson {
         List<Claim> result = new ArrayList<>();
         List<Claim> all = findAll();
         for (Claim c : all) {
-            if (c.getClaimerID().equals(claimerId)) {
+            if (c.getClaimerId().equals(claimerId)) {
                 result.add(c);
             }
         }
@@ -60,8 +60,8 @@ public class ClaimRepositoryJson {
 
     public void save(Claim claim) {
         List<Claim> claimList = findAll();
-        if (claim.getClaimID() == null || claim.getClaimID().isEmpty()) {
-            claim.setClaimID(UUID.randomUUID().toString());
+        if (claim.getClaimId() == null || claim.getClaimId().isEmpty()) {
+            claim.setClaimId(UUID.randomUUID().toString());
         }
 
         claimList.add(claim);
@@ -73,7 +73,7 @@ public class ClaimRepositoryJson {
         int i = 0;
         boolean visited = false;
         for(Claim claim1:claimList){
-            if(claim.getClaimID().equals(claim1.getClaimID())){
+            if(claim.getClaimId().equals(claim1.getClaimId())){
                 claimList.set(i,claim);
                 visited = true;
                 break;
@@ -88,7 +88,7 @@ public class ClaimRepositoryJson {
 
     public void deleteByID(String claimID){
         List<Claim> all = findAll();
-        all.removeIf(c -> c.getClaimID().equals(claimID));
+        all.removeIf(c -> c.getClaimId().equals(claimID));
         jsonUtils.writeList(filePath, all);
     }
 }

@@ -12,17 +12,20 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-
+/** handles HTTP requests coming from frontend/postman in the path "/api/items" */
 @RestController
 @RequestMapping("/api/items")
 public class ItemController {
     private final ItemService itemService;
     private final FileStorageService storage;
 
+    /** constructor*/
     public ItemController(ItemService itemService,FileStorageService storage){
         this.itemService = itemService;
         this.storage = storage;
     }
+
+    /** This endpoint expects multipart form data because image upload is included.*/
     @PostMapping(consumes = {"multipart/form-data"})
     public ResponseEntity<?> createItem(
             @RequestParam String listerId,
@@ -54,21 +57,24 @@ public class ItemController {
             return ResponseEntity.status(500).body("Internal error: " + e.getMessage());
         }
     }
+    /** gets all the items from items.json*/
     @GetMapping
-    public ResponseEntity<?> getItems(@RequestParam(required = false) String category){
+    public ResponseEntity<?> getItems(@RequestParam(required = false) String category, @RequestParam String college){
         try{
             List<Item> items;
             if(category != null && !category.isBlank()){
                 items = itemService.filter(category);
             }
             else{
-                items = itemService.getAllItems();
+                items = itemService.getAllItems(college);
             }
             return ResponseEntity.ok(items);
         }catch (IOException e) {
             return ResponseEntity.status(500).body("Error reading items: " + e.getMessage());
         }
     }
+
+    /** finds items by there id*/
     @GetMapping("/{id}")
     public ResponseEntity<?> getItemById(@PathVariable String id){
         try{
@@ -82,13 +88,13 @@ public class ItemController {
         }
     }
 
+    /** changes status of the item: CLAIMED,LISTED,PENDING*/
     @PutMapping("/{id}/status")
     public ResponseEntity<?> updateStatus(
             @PathVariable String id,
             @RequestParam String status
     ) {
         try {
-            // Optionally: you can verify item exists first via findById
             itemService.updateStatus(status, id);
             return ResponseEntity.ok("Status updated to: " + status);
         } catch (IOException e) {
@@ -96,6 +102,7 @@ public class ItemController {
         }
     }
 
+    /** shows all the items listed by the user with the userid given*/
     @GetMapping("/listed/{userId}")
     public ResponseEntity<?> getListedItems(@PathVariable String userId) {
         try {
