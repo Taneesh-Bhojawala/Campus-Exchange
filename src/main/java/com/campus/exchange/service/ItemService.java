@@ -79,7 +79,15 @@ public class ItemService {
     }
 
     /** returns all the items in the items.json file*/
-    public List<Item> getAllItems() throws IOException{
-        return itemRepo.findAll();
+    public List<Item> getAllItems(String collegeName) throws IOException{
+        List<Item> list = itemRepo.findAll();
+        List<Item> result = new ArrayList<>();
+
+        for(Item item : list){
+            if(item.getCollege().equals(collegeName)){
+                result.add(item);
+            }
+        }
+        return result;
     }
 }
