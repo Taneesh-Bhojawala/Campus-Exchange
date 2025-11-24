@@ -59,14 +59,14 @@ public class ItemController {
     }
     /** gets all the items from items.json*/
     @GetMapping
-    public ResponseEntity<?> getItems(@RequestParam(required = false) String category){
+    public ResponseEntity<?> getItems(@RequestParam(required = false) String category, @RequestParam String college){
         try{
             List<Item> items;
             if(category != null && !category.isBlank()){
                 items = itemService.filter(category);
             }
             else{
-                items = itemService.getAllItems();
+                items = itemService.getAllItems(college);
             }
             return ResponseEntity.ok(items);
         }catch (IOException e) {
