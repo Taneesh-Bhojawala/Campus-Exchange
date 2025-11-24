@@ -148,4 +148,14 @@ public class ClaimService {
 //        itemRepositoryJson.update(item);
         itemService.updateStatus("CLAIMED",itemID);
     }
+    public List<Claim> getAllClaims(String listerID){
+        List<Claim> claimList = claimRepositoryJson.findAll();
+        List<Claim> claimList1 = new ArrayList<>();
+        for(Claim claim:claimList){
+            if(claim.getListerID().equals(listerID)){
+                claimList1.add(claim);
+            }
+        }
+        return claimList1;
+    }
 }
