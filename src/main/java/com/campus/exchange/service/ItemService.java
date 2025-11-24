@@ -1,6 +1,5 @@
 package com.campus.exchange.service;
 
-import com.campus.exchange.dto.ItemCreateRequest;
 import com.campus.exchange.model.Item;
 import com.campus.exchange.repository.ItemRepositoryJson;
 import org.springframework.stereotype.Service;
@@ -9,7 +8,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 
 @Service
@@ -20,8 +18,13 @@ public class ItemService {
         this.itemRepo = itemRepo;
     }
 
-    public Item createItem(ItemCreateRequest request) throws IOException{
-        Item item = new Item(UUID.randomUUID().toString(),request.getListerUserId(), request.getQuantity(), request.getTitle(), request.getDescription(), request.getCategory(), request.getPrice(), request.getImagePath(), "LISTED",System.currentTimeMillis());
+    public Item createItem(Item item) throws IOException{
+        if(item.getCreatedAt() == 0L){
+            item.setCreatedAt(System.currentTimeMillis());
+        }
+        if(item.getStatus() == null || item.getStatus().isBlank()){
+            item.setStatus("LISTED");
+        }
         itemRepo.save(item);
         return item;
     }
