@@ -23,8 +23,8 @@ import java.util.Optional;
 @Repository
 public class PendingSignupRepositoryJson
 {
-    private JsonUtils jsonUtils;
-    private AppProperties appProperties;
+    private final JsonUtils jsonUtils;
+    private final AppProperties appProperties;
 
     public PendingSignupRepositoryJson(JsonUtils jsonUtils, AppProperties appProperties)
     {
