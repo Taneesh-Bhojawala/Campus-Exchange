@@ -15,7 +15,6 @@ public class AppProperties {
     Path to folders where all data files are stored (acting as database)
      */
     private String dataFolder;
-
     /*
     Directory where images uploaded by users will be stored (for item listings)
      */
