@@ -152,7 +152,7 @@ public class ClaimService {
         List<Claim> claimList = claimRepositoryJson.findAll();
         List<Claim> claimList1 = new ArrayList<>();
         for(Claim claim:claimList){
-            if(claim.getListerID().equals(listerID)){
+            if(claim.getListerId().equals(listerID)){
                 claimList1.add(claim);
             }
         }
