@@ -8,13 +8,25 @@ import com.campus.exchange.repository.PendingSignupRepositoryJson;
 import com.campus.exchange.repository.UserRepositoryJson;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-
+import org.springframework.boot.SpringApplication;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.web.bind.annotation.*;
+import java.io.IOException;
+import java.security.SecureRandom;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.Optional;
 import java.util.UUID;
 
 @Service
 public class AuthService
 {
+    JavaMailSender javaMailSender;
     private final PendingSignupRepositoryJson pendingRepo;
     private final UserRepositoryJson userRepo;
     private final BCryptPasswordEncoder passwordEncoder;
@@ -53,8 +65,20 @@ public class AuthService
         pendingRepo.save(pendingSignup);
 
         System.out.println("OTP for " + signupRequest.getEmail() + ": " + otp);
-
+        SimpleMailMessage message = getSimpleMailMessage(signupRequest, otp);
+        javaMailSender.send(message);
         return "OTP sent successfully, please verify";
+    }
+
+    private static SimpleMailMessage getSimpleMailMessage(SignupRequest signupRequest, String otp) {
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setFrom("chizurimizu@gmail.com");
+        message.setTo(signupRequest.getEmail());
+        message.setSubject("One Time Password (OTP) for your account on OrangeCat");
+        message.setText("Hi, " + signupRequest.getName() + "\nUse " + otp + " as One Time Password (OTP) to verify your account with OrangeCat. This OTP is valid for 2 minutes.");
+        message.setText("Please do not share this OTP with anyone for security reasons.");
+        message.setText("Regards,\nTeam OrangeCat 🐈\n");
+        return message;
     }
 
     public User verifyOtp(VerifyOtpRequest verifyOtpDto) throws Exception
