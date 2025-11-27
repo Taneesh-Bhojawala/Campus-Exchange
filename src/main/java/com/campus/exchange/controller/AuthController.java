@@ -33,6 +33,8 @@ public class AuthController
         this.passwordEncoder = passwordEncoder;
     }
 
+    /**Create a new signup request
+     * Body- SignupRequest*/
     @PostMapping("/signup-request")
     public ResponseEntity<?> signup(@RequestBody SignupRequest request)
     {
@@ -75,7 +77,7 @@ public class AuthController
 
             User user = userOpt.get();
 
-            // Check password — here using your real hashed password field
+            //check password — here using real hashed password field
             boolean matches = passwordEncoder.matches(password, user.getPassword());
 
             if (!matches)
