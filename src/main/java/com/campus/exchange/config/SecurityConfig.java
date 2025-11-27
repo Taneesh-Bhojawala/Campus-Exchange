@@ -14,31 +14,20 @@ public class SecurityConfig {
 
     // Main security config: allow all requests, no login required
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http
-                // for simple JSON APIs we usually disable CSRF
-                .csrf(AbstractHttpConfigurer::disable)
-
-                // authorization rules
-                .authorizeHttpRequests(auth -> auth
-                        // keep signup & auth endpoints fully open
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception
+    {
+        http.csrf(AbstractHttpConfigurer::disable).authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/**").permitAll()
-                        // you can add more public endpoints here
                         .requestMatchers("/students/**", "/items/**", "/uploads/**").permitAll()
-                        // everything else also allowed (no authentication at all)
-                        .anyRequest().permitAll()
-                )
-
-                // disable default login form & HTTP basic popup
-                .formLogin(AbstractHttpConfigurer::disable)
-                .httpBasic(AbstractHttpConfigurer::disable);
+                        .anyRequest().permitAll()).formLogin(AbstractHttpConfigurer::disable).httpBasic(AbstractHttpConfigurer::disable);
 
         return http.build();
     }
 
     // still keep your password encoder bean
     @Bean
-    public BCryptPasswordEncoder passwordEncoder() {
+    public BCryptPasswordEncoder passwordEncoder()
+    {
         return new BCryptPasswordEncoder();
     }
 }
