@@ -50,9 +50,9 @@ public class ItemController {
             item.setImagePath(imagePath);
 
             Item created = itemService.createItem(item);
-            return ResponseEntity.status(201).body(created);
+            return ResponseEntity.status(201).body(created); //status 201 used to tell that the request was successfull and a new resource has been created
         }catch (IOException e) {
-            return ResponseEntity.status(500).body("Error saving item: " + e.getMessage());
+            return ResponseEntity.status(500).body("Error saving item: " + e.getMessage());// status 500 Internal Server Error (a standard code for unexpected server-side problems)
         } catch (Exception e) {
             return ResponseEntity.status(500).body("Internal error: " + e.getMessage());
         }
@@ -68,7 +68,7 @@ public class ItemController {
             else{
                 items = itemService.getAllItems(college);
             }
-            return ResponseEntity.ok(items);
+            return ResponseEntity.ok(items); // shows 200 ok on postman indicating success
         }catch (IOException e) {
             return ResponseEntity.status(500).body("Error reading items: " + e.getMessage());
         }
