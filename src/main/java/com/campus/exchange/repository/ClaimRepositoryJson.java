@@ -38,10 +38,8 @@ public class ClaimRepositoryJson {
     }
     public Optional<Claim> findByItemId(String itemID){
         List<Claim> claimList = findAll();
-//        Claim result = new ArrayList<>();
         for(Claim claim: claimList){
             if(claim.getItemId().equals(itemID)){
-//                result.add(claim);
                 return Optional.of(claim);
             }
         }

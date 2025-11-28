@@ -12,9 +12,9 @@ import java.util.List;
 import java.util.Optional;
 @Repository
 public class BlockRepositoryJson {
-    private JsonUtils jsonUtils;
-    private String filePath;
-    private TypeReference<List<BlockEntry>> typeRef = new TypeReference<>() {};
+    private final JsonUtils jsonUtils;
+    private final String filePath;
+    private final TypeReference<List<BlockEntry>> typeRef = new TypeReference<>() {};
 
     public BlockRepositoryJson(AppProperties props, JsonUtils jsonUtils){
         this.jsonUtils = jsonUtils;
