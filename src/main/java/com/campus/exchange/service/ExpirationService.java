@@ -63,11 +63,10 @@ public class ExpirationService {
                 long now = Instant.now().toEpochMilli();
                 long createdAt = item.getCreatedAt(); // epoch millis
                 if (now - createdAt >= EXPIRATION_MS) {
-                    // mark expired
-                    itemRepository.deleteById(item.getItemId());
-
                     // notify owner
                     try {
+                        itemRepository.deleteById(item.getItemId());
+                        System.out.println("[ExpirationService] Item id: "+item.getItemId() + " has been expired");
                         notificationService.notifyItemExpired(item.getItemId(), item.getListerId(), item.getTitle());
 
                     } catch (Exception e) {
