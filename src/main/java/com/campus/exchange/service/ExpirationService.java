@@ -100,7 +100,7 @@ public class ExpirationService {
                     try {
                         pendingSignupRepository.deleteByEmail(p.getEmail());
                         // optional: print/log so you can demonstrate deletion in console
-                        System.out.println("[ExpirationService] Deleted pending signup for " + p.getEmail());
+                        System.out.println("[ExpirationService] Pending signup deleted for " + p.getEmail());
                     } catch (Exception ex) {
                         ex.printStackTrace();
                     }
