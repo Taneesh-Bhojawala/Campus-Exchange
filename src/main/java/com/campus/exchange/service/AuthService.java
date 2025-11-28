@@ -26,13 +26,14 @@ import java.util.UUID;
 @Service
 public class AuthService
 {
-    JavaMailSender javaMailSender;
+    private final JavaMailSender javaMailSender;
     private final PendingSignupRepositoryJson pendingRepo;
     private final UserRepositoryJson userRepo;
     private final BCryptPasswordEncoder passwordEncoder;
 
-    public AuthService(PendingSignupRepositoryJson pendingRepo, UserRepositoryJson userRepo, BCryptPasswordEncoder passwordEncoder)
+    public AuthService(JavaMailSender javaMailSender, PendingSignupRepositoryJson pendingRepo, UserRepositoryJson userRepo, BCryptPasswordEncoder passwordEncoder)
     {
+        this.javaMailSender = javaMailSender;
         this.pendingRepo = pendingRepo;
         this.userRepo = userRepo;
         this.passwordEncoder = passwordEncoder;
@@ -72,12 +73,10 @@ public class AuthService
 
     private static SimpleMailMessage getSimpleMailMessage(SignupRequest signupRequest, String otp) {
         SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom("chizurimizu@gmail.com");
+        message.setFrom("campus.exchange.iiitb@gmail.com");
         message.setTo(signupRequest.getEmail());
         message.setSubject("One Time Password (OTP) for your account on OrangeCat");
-        message.setText("Hi, " + signupRequest.getName() + "\nUse " + otp + " as One Time Password (OTP) to verify your account with OrangeCat. This OTP is valid for 2 minutes.");
-        message.setText("Please do not share this OTP with anyone for security reasons.");
-        message.setText("Regards,\nTeam OrangeCat 🐈\n");
+        message.setText("Hi, " + signupRequest.getName() + "\nUse " + otp + " as One Time Password (OTP) to verify your account with OrangeCat. This OTP is valid for 2 minutes.\nPlease do not share this OTP with anyone for security reasons.\nRegards,\nTeam OrangeCat 🐈\n");
         return message;
     }
 

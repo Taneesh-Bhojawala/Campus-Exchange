@@ -8,37 +8,30 @@ import org.springframework.security.config.annotation.web.configurers.AbstractHt
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
+//the @Configuration annotation tell spring that this class contains definitions for beans and to look out for them
+//@EnableWebSecurity annotation turns on the spring security and allows to change the default settings as it is done below
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
 
-    // Main security config: allow all requests, no login required
+    //main security config: allow all requests, no login required(spring security auto generated the login page, this is to avoid that)
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http
-                // for simple JSON APIs we usually disable CSRF
-                .csrf(AbstractHttpConfigurer::disable)
-
-                // authorization rules
-                .authorizeHttpRequests(auth -> auth
-                        // keep signup & auth endpoints fully open
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception
+    {
+        //csrf: cross site request forgery, no need for our restapi
+        //permitAll() allows all endpoints to be accessed without logging in.
+        http.csrf(AbstractHttpConfigurer::disable).authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/**").permitAll()
-                        // you can add more public endpoints here
-                        .requestMatchers("/students/**", "/items/**", "/uploads/**").permitAll()
-                        // everything else also allowed (no authentication at all)
-                        .anyRequest().permitAll()
-                )
-
-                // disable default login form & HTTP basic popup
-                .formLogin(AbstractHttpConfigurer::disable)
-                .httpBasic(AbstractHttpConfigurer::disable);
+                        .requestMatchers("/api/claims", "api/items/**", "/api/notifications/**").permitAll()
+                        .anyRequest().permitAll()).formLogin(AbstractHttpConfigurer::disable).httpBasic(AbstractHttpConfigurer::disable);
 
         return http.build();
     }
 
-    // still keep your password encoder bean
+    //password encoder from Spring Security Dependency
     @Bean
-    public BCryptPasswordEncoder passwordEncoder() {
+    public BCryptPasswordEncoder passwordEncoder()
+    {
         return new BCryptPasswordEncoder();
     }
 }
