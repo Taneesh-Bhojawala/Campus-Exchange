@@ -42,10 +42,7 @@ public class AuthController
     public ResponseEntity<?> signup(@RequestBody SignupRequest request)
     {
         try
-        {
-            logger.log("AuthService","Signup request: "+ request.getEmail());
-            String message = authService.signupRequest(request);
-            logger.log("AuthService", "OTP sent to: "+ request.getEmail());
+        {String message = authService.signupRequest(request);
             return ResponseEntity.status(HttpStatus.CREATED).body(message);
 
         }
@@ -61,7 +58,6 @@ public class AuthController
         try
         {
             // Add at the very start
-            logger.log("AuthService", "Verifying OTP for: " + request.getEmail());
             User user = authService.verifyOtp(request);
             logger.log("AuthService", "User verified and created: " + user.getUserId());
             return ResponseEntity.ok(user);
@@ -85,4 +81,15 @@ public class AuthController
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getMessage());
         }
     }
+
+    @PostMapping("/logout")
+    public ResponseEntity<?> logout(@RequestHeader("Auth-Token") String token) {
+        try {
+            String message = authService.logout(token);
+            return ResponseEntity.ok(message);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
+    }
+
 }

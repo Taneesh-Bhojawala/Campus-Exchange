@@ -1,1 +1,28 @@
-[]
+[ {
+  "userId" : "da731af1-6885-4ea2-973f-8ee5c19f7290",
+  "name" : "User1",
+  "email" : "taneeshbhojawala@gmail.com",
+  "password" : "$2a$10$S3mq4NEvdtHaJB4bJ1bPPu9a1TqP8SAJudXRofZZGoH3pf1RoJpd2",
+  "hostelNumber" : "B-786",
+  "gender" : "Male",
+  "college" : "IIITB",
+  "enabled" : true
+}, {
+  "userId" : "b7932c75-9235-4e75-be0f-da53d9d7f7c9",
+  "name" : "User2",
+  "email" : "omaghera1292006@gmail.com",
+  "password" : "$2a$10$YU.D9uDG54juxmsGa.1jwe.puV4ec3NwrdmPPvhroPMDH5DfdgHa.",
+  "hostelNumber" : "B-725",
+  "gender" : "Male",
+  "college" : "IIITB",
+  "enabled" : true
+}, {
+  "userId" : "f9a456be-9a56-4be8-9597-eff4e821a5e1",
+  "name" : "User3",
+  "email" : "aryankhadgi9@gmail.com",
+  "password" : "$2a$10$.RHfKWF342yi5PGvUiHhTusNCx8m86PNF1orEIXVZ5TVc.nFLFHcS",
+  "hostelNumber" : "B-723",
+  "gender" : "Male",
+  "college" : "IIITB",
+  "enabled" : true
+} ]

@@ -1,1 +1,105 @@
-[]
+[ {
+  "id" : "82bd2201-5186-4852-a633-0d911c6adb8c",
+  "type" : "CLAIM_CREATED",
+  "title" : "NEW CLAIM REQUEST",
+  "message" : "User2 has requested to claim your itemChair.",
+  "timestamp" : 1765036093269,
+  "read" : true,
+  "userId" : "da731af1-6885-4ea2-973f-8ee5c19f7290"
+}, {
+  "id" : "51429487-821e-4e44-a072-8d72826d7d3e",
+  "type" : "CLAIM_CREATED",
+  "title" : "CLAIM SUBMITTED",
+  "message" : "Your claim request for Chair has been submitted.",
+  "timestamp" : 1765036093269,
+  "read" : true,
+  "userId" : "b7932c75-9235-4e75-be0f-da53d9d7f7c9"
+}, {
+  "id" : "5f18108b-3621-4317-8112-3efacf35a0eb",
+  "type" : "CLAIM_CREATED",
+  "title" : "NEW CLAIM REQUEST",
+  "message" : "User2 has requested to claim your itemCLRS book.",
+  "timestamp" : 1765036123920,
+  "read" : true,
+  "userId" : "da731af1-6885-4ea2-973f-8ee5c19f7290"
+}, {
+  "id" : "7bad4b93-6b1b-42a0-bf2a-807c40b7201d",
+  "type" : "CLAIM_CREATED",
+  "title" : "CLAIM SUBMITTED",
+  "message" : "Your claim request for CLRS book has been submitted.",
+  "timestamp" : 1765036123920,
+  "read" : true,
+  "userId" : "b7932c75-9235-4e75-be0f-da53d9d7f7c9"
+}, {
+  "id" : "17a3ec66-df3f-47dd-8596-7548fcb8d3fb",
+  "type" : "CLAIM_CREATED",
+  "title" : "NEW CLAIM REQUEST",
+  "message" : "User3 has requested to claim your itemCLRS book.",
+  "timestamp" : 1765036471503,
+  "read" : true,
+  "userId" : "da731af1-6885-4ea2-973f-8ee5c19f7290"
+}, {
+  "id" : "03f5595a-d135-4c96-90f9-1fd1160e8f3c",
+  "type" : "CLAIM_CREATED",
+  "title" : "CLAIM SUBMITTED",
+  "message" : "Your claim request for CLRS book has been submitted.",
+  "timestamp" : 1765036471503,
+  "read" : true,
+  "userId" : "f9a456be-9a56-4be8-9597-eff4e821a5e1"
+}, {
+  "id" : "e6924174-0bf1-440a-b9d1-03a04aebcbe0",
+  "type" : "CLAIM_CREATED",
+  "title" : "NEW CLAIM REQUEST",
+  "message" : "User3 has requested to claim your itemChair.",
+  "timestamp" : 1765036495574,
+  "read" : true,
+  "userId" : "da731af1-6885-4ea2-973f-8ee5c19f7290"
+}, {
+  "id" : "7b445377-1a9e-4cc4-8398-765d56464141",
+  "type" : "CLAIM_CREATED",
+  "title" : "CLAIM SUBMITTED",
+  "message" : "Your claim request for Chair has been submitted.",
+  "timestamp" : 1765036495574,
+  "read" : true,
+  "userId" : "f9a456be-9a56-4be8-9597-eff4e821a5e1"
+}, {
+  "id" : "cac0b696-897b-4aea-ae5b-26dfc0524cfb",
+  "type" : "CLAIM_ACCEPTED",
+  "title" : "Claim Accepted Successfully",
+  "message" : "You accepted User2 claim on Chair .\nThey can now contact you at taneeshbhojawala@gmail.com .\nTheir email: omaghera1292006@gmail.com .\nTheir hostel number: B-725 .",
+  "timestamp" : 1765036648242,
+  "read" : false,
+  "userId" : "da731af1-6885-4ea2-973f-8ee5c19f7290"
+}, {
+  "id" : "c9e70b9a-136f-47bb-841a-6d05edd760c6",
+  "type" : "CLAIM_ACCEPTED",
+  "title" : "Claim Accepted!",
+  "message" : "Good news! Your claim on Chair has been accepted.\nYou may now contact the owner at: taneeshbhojawala@gmail.com to coordinate pickup.\nTheir hostel number: B-725 .\n",
+  "timestamp" : 1765036648242,
+  "read" : true,
+  "userId" : "b7932c75-9235-4e75-be0f-da53d9d7f7c9"
+}, {
+  "id" : "b43118f3-b911-4dc2-8b4e-367d35bc20c5",
+  "type" : "CLAIM_REJECTED",
+  "title" : "Claim Rejected",
+  "message" : "Your claim for CLRS book was not accepted.\nYou may still explore other available listings.",
+  "timestamp" : 1765036938055,
+  "read" : true,
+  "userId" : "b7932c75-9235-4e75-be0f-da53d9d7f7c9"
+}, {
+  "id" : "af30a034-abea-4671-84a4-7e53cf21ea65",
+  "type" : "CLAIM_ACCEPTED",
+  "title" : "Claim Accepted Successfully",
+  "message" : "You accepted User3 claim on CLRS book .\nThey can now contact you at taneeshbhojawala@gmail.com .\nTheir email: aryankhadgi9@gmail.com .\nTheir hostel number: B-723 .",
+  "timestamp" : 1765037000058,
+  "read" : false,
+  "userId" : "da731af1-6885-4ea2-973f-8ee5c19f7290"
+}, {
+  "id" : "510b9e93-576f-47c7-a486-8dfb8a808f2c",
+  "type" : "CLAIM_ACCEPTED",
+  "title" : "Claim Accepted!",
+  "message" : "Good news! Your claim on CLRS book has been accepted.\nYou may now contact the owner at: taneeshbhojawala@gmail.com to coordinate pickup.\nTheir hostel number: B-723 .\n",
+  "timestamp" : 1765037000058,
+  "read" : true,
+  "userId" : "f9a456be-9a56-4be8-9597-eff4e821a5e1"
+} ]
