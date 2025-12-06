@@ -21,16 +21,19 @@ public class ClaimService {
     private final ItemRepositoryJson itemRepositoryJson;
     private final BlockRepositoryJson blockRepositoryJson;
     private final ItemService itemService;
+    private final CustomLogger logger;
     private final NotificationService notificationService;
-    public ClaimService(ClaimRepositoryJson claimRepositoryJson, ItemRepositoryJson itemRepositoryJson, BlockRepositoryJson blockRepositoryJson, ItemService itemService, NotificationService notificationService) {
+    public ClaimService(ClaimRepositoryJson claimRepositoryJson, ItemRepositoryJson itemRepositoryJson, BlockRepositoryJson blockRepositoryJson, ItemService itemService, CustomLogger logger, NotificationService notificationService) {
         this.claimRepositoryJson = claimRepositoryJson;
         this.itemRepositoryJson = itemRepositoryJson;
         this.blockRepositoryJson = blockRepositoryJson;
         this.itemService = itemService;
+        this.logger = logger;
         this.notificationService = notificationService;
     }
 //    private ItemService itemService = new ItemService(itemRepositoryJson);
     public Claim createClaim(String itemID,String userID) throws Exception {
+        logger.log("ClaimService", "Claim initiated for itemID " + itemID + " by userID " + userID);
         blockRepositoryJson.removeExpiredUsers();
          //now we will check if the user is claiming the item listed by him or not
         Optional<Item> itemOptional = itemRepositoryJson.findById(itemID);
@@ -65,6 +68,7 @@ public class ClaimService {
         * */
 
         notificationService.NotifyClaimCreated(itemID,claim.getListerId(),claim.getClaimerId(),item.getTitle());
+        logger.log("ClaimService", "Claim created for itemID " + itemID);
         return claim;
     }
 
@@ -91,6 +95,7 @@ public class ClaimService {
         }
         Item item = itemOptional.get();
         notificationService.notifyClaimAccepted(itemID,claim.getListerId(),claim.getClaimerId(),item.getTitle());
+        logger.log("ClaimService", "Claim accepted for itemID " + itemID);
         return claim1;
     }
     public Claim rejectClaim(Claim claim) throws Exception{
@@ -111,6 +116,7 @@ public class ClaimService {
         }
         Item item = itemOptional.get();
         notificationService.notifyClaimRejected(itemID,claim.getListerId(),claim.getClaimerId(),item.getTitle());
+        logger.log("ClaimService", "Claim rejected for itemID " + itemID);
         return claim1;
     }
 
@@ -129,6 +135,7 @@ public class ClaimService {
         long timeBlockedUntil = SEVEN_DAYS_TIME + System.currentTimeMillis();
         BlockEntry userBlocked = new BlockEntry(itemID,claim.getClaimerId(),timeBlockedUntil);
         blockRepositoryJson.addBlockedUser(userBlocked);
+        logger.log("ClaimService", "Claim rejected for itemID " + itemID);
     }
     public void completeDeal(String itemID) throws Exception{
         Optional<Item> optionalItem = itemRepositoryJson.findById(itemID);
@@ -136,6 +143,7 @@ public class ClaimService {
             throw new Exception("Item not found");
         }
         itemService.updateStatus("CLAIMED",itemID);
+        logger.log("ClaimService", "Claim completed for itemID " + itemID);
     }
     public List<Claim> getAllClaims(String listerID){
         List<Claim> claimList = claimRepositoryJson.findAll();

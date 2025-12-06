@@ -129,6 +129,7 @@ public class AuthService
 
     public String verifySession(String token) throws Exception
     {
+
         Optional<Sessions> sessionOptional = sessionRepo.findByToken(token);
 
         if (sessionOptional.isEmpty())

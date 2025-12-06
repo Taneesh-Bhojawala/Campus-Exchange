@@ -16,13 +16,17 @@ import java.util.List;
 @Service
 public class CollegeService {
     private Path filePath;
+    private final CustomLogger logger;
     private ObjectMapper mapper = new ObjectMapper();
     private TypeReference<List<String>> typeReference = new TypeReference<List<String>>(){};
-    public CollegeService(AppProperties props){
+    public CollegeService(AppProperties props, CustomLogger logger){
         this.filePath = Path.of(props.getDataFolder(),"colleges.json");
+        this.logger = logger;
     }
     List<String> getAll() throws Exception{
         //check if the file path exists or not
+        // At the top
+        logger.log("CollegeService", "Reading college list from file");
         if(!Files.exists(filePath)){
             throw new Exception("colleges.json does not exist");
         }

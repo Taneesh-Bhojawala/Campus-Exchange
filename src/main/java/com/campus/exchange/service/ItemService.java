@@ -13,14 +13,18 @@ import java.util.Optional;
 @Service
 public class ItemService {
     private final ItemRepositoryJson itemRepo;
+    private final CustomLogger logger;
 
     /** constructor*/
-    public ItemService(ItemRepositoryJson itemRepo) {
+    public ItemService(ItemRepositoryJson itemRepo, CustomLogger logger) {
         this.itemRepo = itemRepo;
+        this.logger = logger;
     }
 
     /** creates new item and calls .save() method of itemRepo which saves item to the json file*/
     public Item createItem(Item item) throws IOException{
+        logger.log("ItemService", "Creating new item: " + item.getTitle());
+
         if(item.getCreatedAt() == 0L){
             item.setCreatedAt(System.currentTimeMillis());
         }
@@ -28,6 +32,7 @@ public class ItemService {
             item.setStatus("LISTED");
         }
         itemRepo.save(item);
+        logger.log("ItemService", "Item saved successfully with ID: " + item.getItemId());
         return item;
     }
 
