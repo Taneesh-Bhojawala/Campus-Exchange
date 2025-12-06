@@ -6,6 +6,7 @@ import com.campus.exchange.model.User;
 import com.campus.exchange.repository.PendingSignupRepositoryJson;
 import com.campus.exchange.repository.UserRepositoryJson;
 import com.campus.exchange.service.AuthService;
+import com.campus.exchange.service.CustomLogger;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -19,18 +20,20 @@ import java.util.*;
 public class AuthController
 {
 
+    private final CustomLogger logger;
     private final AuthService authService;
     private final PendingSignupRepositoryJson pendingRepo;
     private final UserRepositoryJson userRepo;
     private final BCryptPasswordEncoder passwordEncoder;
 
-    public AuthController(AuthService authService, PendingSignupRepositoryJson pendingRepo, UserRepositoryJson userRepo, BCryptPasswordEncoder passwordEncoder)
+    public AuthController(AuthService authService, PendingSignupRepositoryJson pendingRepo, UserRepositoryJson userRepo, BCryptPasswordEncoder passwordEncoder, CustomLogger logger)
     {
 
         this.authService = authService;
         this.pendingRepo = pendingRepo;
         this.userRepo = userRepo;
         this.passwordEncoder = passwordEncoder;
+        this.logger = logger;
     }
 
     /**Create a new signup request
@@ -40,8 +43,11 @@ public class AuthController
     {
         try
         {
+            logger.log("AuthService","Signup request: "+ request.getEmail());
             String message = authService.signupRequest(request);
+            logger.log("AuthService", "OTP sent to: "+ request.getEmail());
             return ResponseEntity.status(HttpStatus.CREATED).body(message);
+
         }
         catch (Exception e)
         {
@@ -54,7 +60,10 @@ public class AuthController
     {
         try
         {
+            // Add at the very start
+            logger.log("AuthService", "Verifying OTP for: " + request.getEmail());
             User user = authService.verifyOtp(request);
+            logger.log("AuthService", "User verified and created: " + user.getUserId());
             return ResponseEntity.ok(user);
         }
         catch (Exception e)
