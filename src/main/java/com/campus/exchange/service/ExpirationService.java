@@ -27,8 +27,7 @@ public class ExpirationService {
     private final NotificationService notificationService;
     private final CustomLogger logger;
 
-    private static final long EXPIRATION_MS_PENDINGSIGNUP = 120000L;
-    private static final long EXPIRATION_MS_ITEMEXPIRY = 300000;
+    private static final long EXPIRATION_MS_ITEMEXPIRY = 3000000;
 
     public ExpirationService(ItemRepositoryJson itemRepository,
                              PendingSignupRepositoryJson pendingSignupRepository,
