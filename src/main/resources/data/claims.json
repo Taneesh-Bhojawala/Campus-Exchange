@@ -1,1 +1,15 @@
-[]
+[ {
+  "claimId" : "11e12f1d-6fe9-47c5-9087-41f2217990ea",
+  "itemId" : "f8c73ca0-eaa9-4e1d-9542-a3c3811850a3",
+  "claimerId" : "49944d6d-0d70-419d-a7b8-7304d6b181bd",
+  "listerId" : "caa66bcf-6f2f-4afe-9afb-a15b48120e40",
+  "status" : "WAITING",
+  "createdAt" : 1765024961739
+}, {
+  "claimId" : "61cbe858-a0af-40ad-8836-afca7572e5cd",
+  "itemId" : "582781d3-54fa-4f11-83ff-ee5a3b288070",
+  "claimerId" : "49944d6d-0d70-419d-a7b8-7304d6b181bd",
+  "listerId" : "caa66bcf-6f2f-4afe-9afb-a15b48120e40",
+  "status" : "ACCEPTED",
+  "createdAt" : 1765025504251
+} ]

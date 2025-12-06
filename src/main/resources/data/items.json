@@ -1,1 +1,13 @@
-[]
+[ {
+  "itemId" : "582781d3-54fa-4f11-83ff-ee5a3b288070",
+  "listerId" : "caa66bcf-6f2f-4afe-9afb-a15b48120e40",
+  "college" : "IIITB",
+  "quantity" : 1,
+  "title" : "Chair",
+  "description" : "Good condition",
+  "category" : "Household",
+  "price" : 1000.0,
+  "imagePath" : "/uploads/ee18e3b3-c8fb-45b2-acd2-c9c4f22aaacb.jpg",
+  "status" : "PENDING",
+  "createdAt" : 1765025290156
+} ]

@@ -1,1 +1,65 @@
-[]
+[ {
+  "id" : "bc50da5c-8ee7-4a67-813a-84dd1769e34b",
+  "type" : "ITEM_EXPIRED",
+  "title" : "Listing Expired",
+  "message" : "Your item Chair has expired and is no longer visible on the platform.\nIf it's still available, you may relist it anytime.",
+  "timestamp" : 1765024749060,
+  "read" : true,
+  "userId" : "caa66bcf-6f2f-4afe-9afb-a15b48120e40"
+}, {
+  "id" : "b2338f0d-862e-44bb-a6ad-6a5fed25f952",
+  "type" : "CLAIM_CREATED",
+  "title" : "NEW CLAIM REQUEST",
+  "message" : "User2 has requested to claim your itemChair.",
+  "timestamp" : 1765024961748,
+  "read" : true,
+  "userId" : "caa66bcf-6f2f-4afe-9afb-a15b48120e40"
+}, {
+  "id" : "286a7165-5dec-4290-8385-8f1d026674a7",
+  "type" : "CLAIM_CREATED",
+  "title" : "CLAIM SUBMITTED",
+  "message" : "Your claim request for Chair has been submitted.",
+  "timestamp" : 1765024961748,
+  "read" : false,
+  "userId" : "49944d6d-0d70-419d-a7b8-7304d6b181bd"
+}, {
+  "id" : "96419a63-0eb7-4cfb-bf99-a40c29a51a0b",
+  "type" : "ITEM_EXPIRED",
+  "title" : "Listing Expired",
+  "message" : "Your item Chair has expired and is no longer visible on the platform.\nIf it's still available, you may relist it anytime.",
+  "timestamp" : 1765025123061,
+  "read" : true,
+  "userId" : "caa66bcf-6f2f-4afe-9afb-a15b48120e40"
+}, {
+  "id" : "96c7bdc6-a413-421b-b5bc-7e754c9cbab8",
+  "type" : "CLAIM_CREATED",
+  "title" : "NEW CLAIM REQUEST",
+  "message" : "User2 has requested to claim your itemChair.",
+  "timestamp" : 1765025504273,
+  "read" : true,
+  "userId" : "caa66bcf-6f2f-4afe-9afb-a15b48120e40"
+}, {
+  "id" : "50b752ea-5768-4414-aef8-9976af47ba99",
+  "type" : "CLAIM_CREATED",
+  "title" : "CLAIM SUBMITTED",
+  "message" : "Your claim request for Chair has been submitted.",
+  "timestamp" : 1765025504273,
+  "read" : false,
+  "userId" : "49944d6d-0d70-419d-a7b8-7304d6b181bd"
+}, {
+  "id" : "3dd53ec9-b999-451d-909d-7485e0dc9491",
+  "type" : "CLAIM_ACCEPTED",
+  "title" : "Claim Accepted Successfully",
+  "message" : "You accepted User2 claim on Chair .\nThey can now contact you at taneeshbhojawala@gmail.com .\nTheir email: omaghera1292006@gmail.com .\nTheir hostel number: B-725 .",
+  "timestamp" : 1765025517100,
+  "read" : true,
+  "userId" : "caa66bcf-6f2f-4afe-9afb-a15b48120e40"
+}, {
+  "id" : "6dd32765-a18a-40e3-a692-c8b6d0113784",
+  "type" : "CLAIM_ACCEPTED",
+  "title" : "Claim Accepted!",
+  "message" : "Good news! Your claim on Chair has been accepted.\nYou may now contact the owner at: taneeshbhojawala@gmail.com to coordinate pickup.\nTheir hostel number: B-725 .\n",
+  "timestamp" : 1765025517100,
+  "read" : false,
+  "userId" : "49944d6d-0d70-419d-a7b8-7304d6b181bd"
+} ]
