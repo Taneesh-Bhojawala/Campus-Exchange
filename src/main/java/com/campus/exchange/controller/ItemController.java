@@ -75,6 +75,8 @@ public class ItemController {
             return ResponseEntity.ok(items); // shows 200 ok on postman indicating success
         }catch (IOException e) {
             return ResponseEntity.status(500).body("Error reading items: " + e.getMessage());
+        }catch(Exception e){
+            return ResponseEntity.status(403).body("Error reading items: " + e.getMessage());
         }
     }
 
