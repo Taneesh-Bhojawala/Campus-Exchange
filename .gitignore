@@ -6,6 +6,7 @@ target/
 !**/src/main/resources/
 *.json
 *.txt
+*.jpg
 !**/src/test/**/target/
 
 ### STS ###
