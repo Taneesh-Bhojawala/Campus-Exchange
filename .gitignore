@@ -1,7 +1,10 @@
 HELP.md
+my_dev_logs.txt
 target/
 .mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
+!**/src/main/resources/
+
 !**/src/test/**/target/
 
 ### STS ###
