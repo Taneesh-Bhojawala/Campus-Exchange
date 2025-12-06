@@ -3,7 +3,10 @@ package com.campus.exchange.controller;
 import com.campus.exchange.dto.ClaimRequest;
 import com.campus.exchange.model.Claim;
 import com.campus.exchange.model.Item;
+import com.campus.exchange.service.AuthService;
 import com.campus.exchange.service.ClaimService;
+import org.eclipse.angus.mail.imap.protocol.UIDSet;
+import org.springframework.boot.autoconfigure.graphql.GraphQlProperties;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,9 +19,10 @@ import java.util.NoSuchElementException;
 public class ClaimController {
 
     private final ClaimService claimService;
-
-    public ClaimController(ClaimService claimService) {
+    private final AuthService authService;
+    public ClaimController(ClaimService claimService, AuthService authService) {
         this.claimService = claimService;
+        this.authService = authService;
     }
 
     /**
@@ -26,13 +30,12 @@ public class ClaimController {
      * Body: ClaimRequest { itemId, claimerId, listerId (optional) }
      */
     @PostMapping(consumes = "application/json", produces = "application/json")
-    public ResponseEntity<?> createClaim(@RequestBody ClaimRequest request) {
+    public ResponseEntity<?> createClaim(@RequestBody ClaimRequest request, @RequestHeader ("Auth-Token") String token) {
         try {
+            String ClaimerId = authService.verifySession(token);
             if (request.getItemId() == null || request.getItemId().isBlank())
                 return ResponseEntity.badRequest().body("itemId is required");
-            if (request.getClaimerId() == null || request.getClaimerId().isBlank())
-                return ResponseEntity.badRequest().body("claimerId is required");
-            Claim created = claimService.createClaim(request.getItemId(), request.getClaimerId());
+            Claim created = claimService.createClaim(request.getItemId(), ClaimerId);
             return ResponseEntity.status(HttpStatus.CREATED).body(created);
         } catch (NoSuchElementException ex) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
@@ -49,8 +52,12 @@ public class ClaimController {
      * Body: Claim (the service accepts a Claim object)
      */
     @PutMapping(path = "/accept", consumes = "application/json", produces = "application/json")
-    public ResponseEntity<?> acceptClaim(@RequestBody Claim claim) {
+    public ResponseEntity<?> acceptClaim(@RequestBody Claim claim, @RequestHeader ("Auth-Token") String token) {
         try {
+            String UserId = authService.verifySession(token);
+            if(!UserId.equals(claim.getListerId())){
+                return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Only Lister can accept the claim.");
+            }
             Claim accepted = claimService.acceptClaim(claim);
             return ResponseEntity.ok(accepted);
         } catch (NoSuchElementException ex) {
@@ -68,8 +75,12 @@ public class ClaimController {
      * Body: Claim
      */
     @PutMapping(path = "/reject", consumes = "application/json")
-    public ResponseEntity<?> rejectClaim(@RequestBody Claim claim) {
+    public ResponseEntity<?> rejectClaim(@RequestBody Claim claim, @RequestHeader ("Auth-Token") String token) {
         try {
+            String UserId = authService.verifySession(token);
+            if(!UserId.equals(claim.getListerId())){
+                return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Only Lister can accept the claim.");
+            }
             Claim rejected = claimService.rejectClaim(claim);
             return ResponseEntity.ok(rejected);
         } catch (NoSuchElementException ex) {
