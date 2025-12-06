@@ -68,34 +68,12 @@ public class AuthController
     {
         try
         {
-            Optional<User> userOpt = userRepo.findByEmail(email);
-
-            if (userOpt.isEmpty())
-            {
-                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("User does not exist.");
-            }
-
-            User user = userOpt.get();
-
-            //check password — here using real hashed password field
-            boolean matches = passwordEncoder.matches(password, user.getPassword());
-
-            if (!matches)
-            {
-                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid password.");
-            }
-
-            if (!user.isEnabled())
-            {
-                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("User not verified.");
-            }
-
-            return ResponseEntity.ok(user);
-
+            Map<String, String> sessionData = authService.login(email, password);
+            return ResponseEntity.ok(sessionData);
         }
         catch (Exception e)
         {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Login failed.");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getMessage());
         }
     }
 }
