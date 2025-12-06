@@ -25,14 +25,16 @@ public class AuthService
     private final UserRepositoryJson userRepo;
     private final BCryptPasswordEncoder passwordEncoder;
     private final SessionRepositoryJson sessionRepo;
+    private final CustomLogger logger;
 
-    public AuthService(JavaMailSender javaMailSender, PendingSignupRepositoryJson pendingRepo, UserRepositoryJson userRepo, BCryptPasswordEncoder passwordEncoder, SessionRepositoryJson sessionRepo)
+    public AuthService(JavaMailSender javaMailSender, PendingSignupRepositoryJson pendingRepo, UserRepositoryJson userRepo, BCryptPasswordEncoder passwordEncoder, SessionRepositoryJson sessionRepo, CustomLogger logger)
     {
         this.javaMailSender = javaMailSender;
         this.pendingRepo = pendingRepo;
         this.userRepo = userRepo;
         this.passwordEncoder = passwordEncoder;
         this.sessionRepo = sessionRepo;
+        this.logger = logger;
     }
 
     private String generateOtp()
@@ -42,6 +44,7 @@ public class AuthService
 
     public String signupRequest(SignupRequest signupRequest) throws Exception
     {
+        logger.log("AuthService", "New Signup Request by name: " + signupRequest.getName() + ", email: " + signupRequest.getEmail());
         Optional<User> user = userRepo.findByEmail(signupRequest.getEmail());
         if(user.isPresent())
         {
@@ -64,6 +67,7 @@ public class AuthService
         System.out.println("OTP for " + signupRequest.getEmail() + ": " + otp);
         SimpleMailMessage message = getSimpleMailMessage(signupRequest, otp);
         javaMailSender.send(message);
+        logger.log("AuthService", "OTP sent to: " + signupRequest.getEmail());
         return "OTP sent successfully, please verify";
     }
 
@@ -95,6 +99,7 @@ public class AuthService
         User user = new User(UUID.randomUUID().toString(), pending.getName(), pending.getEmail(), pending.getHashPassword(), pending.getHostelNumber(), pending.getGender(), pending.getCollege(), true);
         userRepo.save(user);
         pendingRepo.deleteByEmail(verifyOtpDto.getEmail());
+        logger.log("AuthService", "OTP verified for " + user.getUserId());
 
         return user;
     }
@@ -123,6 +128,7 @@ public class AuthService
         Map<String, String> response = new HashMap<>();
         response.put("token", token);
         response.put("userId", user.getUserId());
+        logger.log("AuthService", "Login successful for " + user.getUserId());
 
         return response;
     }
