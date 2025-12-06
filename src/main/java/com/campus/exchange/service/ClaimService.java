@@ -62,7 +62,6 @@ public class ClaimService {
         claimRepositoryJson.save(claim);
         /*
         * here we will place the code for notification
-        *
         * */
 
         notificationService.NotifyClaimCreated(itemID,claim.getListerId(),claim.getClaimerId(),item.getTitle());
@@ -80,9 +79,6 @@ public class ClaimService {
         if(optionalItem.isEmpty()){
             throw new Exception("Item is not listed");
         }
-//        Item item = optionalItem.get();
-//        item.setStatus("WAITING");
-//        itemRepositoryJson.update(item);
         itemService.updateStatus("PENDING",itemID);
         claim1.setStatus("ACCEPTED");
         claimRepositoryJson.updateClaimList(claim1);
@@ -106,7 +102,6 @@ public class ClaimService {
         Claim claim1 = claimOptional.get();
         claim1.setStatus("REJECTED");
         claimRepositoryJson.deleteByID(itemID);
-//        claimRepositoryJson.updateClaimList(claim1);
         /*
          * here we will have the code for accepted claim
          * */
@@ -126,9 +121,6 @@ public class ClaimService {
         if(OptionalItem.isEmpty()){
             throw new Exception("Item not found.");
         }
-//        Item item = OptionalItem.get();
-//        item.setStatus("LISTED");
-//        itemRepositoryJson.update(item);
         itemService.updateStatus("LISTED",itemID);
         /*
         * block the user due to which lister had tp relist the item
@@ -143,9 +135,6 @@ public class ClaimService {
         if(optionalItem.isEmpty()){
             throw new Exception("Item not found");
         }
-//        Item item = optionalItem.get();
-//        item.setStatus("CLAIMED");
-//        itemRepositoryJson.update(item);
         itemService.updateStatus("CLAIMED",itemID);
     }
     public List<Claim> getAllClaims(String listerID){

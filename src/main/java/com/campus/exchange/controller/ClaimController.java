@@ -32,8 +32,6 @@ public class ClaimController {
                 return ResponseEntity.badRequest().body("itemId is required");
             if (request.getClaimerId() == null || request.getClaimerId().isBlank())
                 return ResponseEntity.badRequest().body("claimerId is required");
-
-            // call service exactly as provided
             Claim created = claimService.createClaim(request.getItemId(), request.getClaimerId());
             return ResponseEntity.status(HttpStatus.CREATED).body(created);
         } catch (NoSuchElementException ex) {
@@ -92,7 +90,7 @@ public class ClaimController {
     public ResponseEntity<?> relistClaim(@RequestBody Claim claim) {
         try {
             claimService.relistClaim(claim);
-            return ResponseEntity.ok("Item relisted and claimer blocked (if applicable).");
+            return ResponseEntity.ok("Item relisted and claimer blocked.");
         } catch (NoSuchElementException ex) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
         } catch (IllegalArgumentException | IllegalStateException ex) {
