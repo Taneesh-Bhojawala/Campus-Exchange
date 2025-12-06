@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import java.time.Instant;
 import java.util.List;
 
+
 /**
  * ExpirationService:
  * - Expires item listings automatically after 5 minutes (sets status = "EXPIRED" and notifies owner)
@@ -24,15 +25,17 @@ public class ExpirationService {
     private final ItemRepositoryJson itemRepository;
     private final PendingSignupRepositoryJson pendingSignupRepository;
     private final NotificationService notificationService;
+    private final CustomLogger logger;
 
     private static final long EXPIRATION_MS = 10L * 10L * 100L;
 
     public ExpirationService(ItemRepositoryJson itemRepository,
                              PendingSignupRepositoryJson pendingSignupRepository,
-                             NotificationService notificationService) {
+                             NotificationService notificationService, CustomLogger logger) {
         this.itemRepository = itemRepository;
         this.pendingSignupRepository = pendingSignupRepository;
         this.notificationService = notificationService;
+        this.logger = logger;
     }
 
     /**
@@ -63,12 +66,11 @@ public class ExpirationService {
                 long now = Instant.now().toEpochMilli();
                 long createdAt = item.getCreatedAt(); // epoch millis
                 if (now - createdAt >= EXPIRATION_MS) {
-                    // mark expired
-                    itemRepository.deleteById(item.getItemId());
-
                     // notify owner
                     try {
+                        itemRepository.deleteById(item.getItemId());
                         notificationService.notifyItemExpired(item.getItemId(), item.getListerId(), item.getTitle());
+                        logger.log("ExpirationService", "Item " + item.getItemId() + " has been expired.");
 
                     } catch (Exception e) {
                         // don't fail the entire loop for a single notification failure
@@ -101,7 +103,7 @@ public class ExpirationService {
                     try {
                         pendingSignupRepository.deleteByEmail(p.getEmail());
                         // optional: print/log so you can demonstrate deletion in console
-                        System.out.println("[ExpirationService] Deleted pending signup for " + p.getEmail());
+                        logger.log("ExpirationService", "PendingSignup " + p.getEmail() + " has been deleted.");
                     } catch (Exception ex) {
                         ex.printStackTrace();
                     }

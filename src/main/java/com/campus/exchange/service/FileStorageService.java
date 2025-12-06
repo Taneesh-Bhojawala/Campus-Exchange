@@ -61,6 +61,7 @@ public class FileStorageService {
             }
 
             Files.copy(file.getInputStream(), target, StandardCopyOption.REPLACE_EXISTING);
+            System.out.println("[FileStorageService] Image uploaded successfully");
 
             return "/uploads/" + filename;
 
@@ -87,6 +88,8 @@ public class FileStorageService {
             if (!target.getParent().equals(uploadDir)) {
                 throw new RuntimeException("Invalid file delete request");
             }
+
+            System.out.println("[FileStorageService] Deleting file: " + fileName);
 
             return Files.deleteIfExists(target);
         } catch (Exception e) {

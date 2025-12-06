@@ -15,14 +15,17 @@ import java.util.UUID;
 @Service
 public class NotificationService {
     NotificationRepositoryJson notificationJson;
+    private CustomLogger logger;
     UserRepositoryJson userJson;
 
-    public NotificationService(NotificationRepositoryJson notificationJson, UserRepositoryJson userJson) {
+    public NotificationService(NotificationRepositoryJson notificationJson, UserRepositoryJson userJson, CustomLogger logger) {
         this.notificationJson = notificationJson;
         this.userJson = userJson;
+        this.logger = logger;
     }
 
     public void NotifyClaimCreated(String itemId,String listerId,String claimerId,String itemTitle) throws IOException {
+        logger.log("NotificationService", "NotifyClaimCreated for itemID " + itemId);
         Optional<User> lister = userJson.findById(listerId);
         Optional<User> claimer = userJson.findById(claimerId);
         if(lister.isEmpty() || claimer.isEmpty()){
@@ -41,6 +44,7 @@ public class NotificationService {
     }
 
     public void notifyClaimAccepted(String itemId,String listerId,String claimerId,String itemTitle) throws IOException{
+        logger.log("NotificationService", "notifyClaimAccepted for claimerID " + claimerId);
         Optional<User> lister = userJson.findById(listerId);
         Optional<User> claimer = userJson.findById(claimerId);
         if(lister.isEmpty() || claimer.isEmpty()){
@@ -63,6 +67,7 @@ public class NotificationService {
         notificationJson.addNotification(claimerNotification);
     }
     public void notifyClaimRejected(String itemId,String listerId,String claimerId,String itemTitle) throws IOException{
+        logger.log("NotificationService", "notifyClaimRejected for claimerID "+ claimerId );
         Optional<User> claimer = userJson.findById(claimerId);
         if(claimer.isEmpty()){
             return;
@@ -75,6 +80,7 @@ public class NotificationService {
         notificationJson.addNotification(claimerNotification);
     }
     public void notifyItemExpired(String itemId,String listerId, String itemTitle) throws IOException{
+        logger.log("NotificationService", "notifyItemExpired for itemID " + itemId);
         Optional<User> lister = userJson.findById(listerId);
         if(lister.isEmpty()){
             return;
@@ -87,6 +93,7 @@ public class NotificationService {
         notificationJson.addNotification(listerNotification);
     }
     public List<Notification> showAllNotification(String userId) throws IOException{
+        logger.log("NotificationService", "showAllNotification called for userID " + userId);
         List<Notification> list = notificationJson.findAll();
         List<Notification> result = new ArrayList<>();
 
