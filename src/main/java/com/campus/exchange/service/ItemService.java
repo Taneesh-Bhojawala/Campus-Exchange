@@ -40,7 +40,7 @@ public class ItemService {
     }
 
     /** filters the item according to the category given and returns filtered items list*/
-    public List<Item> filter(String category) throws Exception{
+    public List<Item> filter(String category,String college) throws Exception{
             if(!categoryList.contains(category)){
                 throw new Exception("Invalid Category");
             }
@@ -48,7 +48,7 @@ public class ItemService {
             List<Item> filteredItems = new ArrayList<>();
 
             for(Item item : list){
-                if(item.getCategory().equals(category)){
+                if(item.getCategory().equals(category) && item.getCollege().equals(college)){
                     filteredItems.add(item);
                 }
             }
