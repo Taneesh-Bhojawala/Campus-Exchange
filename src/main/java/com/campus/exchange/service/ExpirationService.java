@@ -27,7 +27,8 @@ public class ExpirationService {
     private final NotificationService notificationService;
     private final CustomLogger logger;
 
-    private static final long EXPIRATION_MS = 10L * 10L * 100L;
+    private static final long EXPIRATION_MS_PENDINGSIGNUP = 120000L;
+    private static final long EXPIRATION_MS_ITEMEXPIRY = 300000;
 
     public ExpirationService(ItemRepositoryJson itemRepository,
                              PendingSignupRepositoryJson pendingSignupRepository,
@@ -65,7 +66,7 @@ public class ExpirationService {
                 if (!candidate) continue;
                 long now = Instant.now().toEpochMilli();
                 long createdAt = item.getCreatedAt(); // epoch millis
-                if (now - createdAt >= EXPIRATION_MS) {
+                if (now - createdAt >= EXPIRATION_MS_ITEMEXPIRY) {
                     // notify owner
                     try {
                         itemRepository.deleteById(item.getItemId());
