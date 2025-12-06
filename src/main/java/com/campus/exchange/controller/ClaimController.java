@@ -2,16 +2,12 @@ package com.campus.exchange.controller;
 
 import com.campus.exchange.dto.ClaimRequest;
 import com.campus.exchange.model.Claim;
-import com.campus.exchange.model.Item;
 import com.campus.exchange.service.AuthService;
 import com.campus.exchange.service.ClaimService;
-import org.eclipse.angus.mail.imap.protocol.UIDSet;
-import org.springframework.boot.autoconfigure.graphql.GraphQlProperties;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.IOException;
 import java.util.NoSuchElementException;
 
 @RestController
@@ -98,9 +94,9 @@ public class ClaimController {
      * Body: Claim
      */
     @PutMapping(path = "/relist", consumes = "application/json")
-    public ResponseEntity<?> relistClaim(@RequestBody Claim claim) {
+    public ResponseEntity<?> relistItem(@RequestBody Claim claim) {
         try {
-            claimService.relistClaim(claim);
+            claimService.relistItem(claim);
             return ResponseEntity.ok("Item relisted and claimer blocked.");
         } catch (NoSuchElementException ex) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());

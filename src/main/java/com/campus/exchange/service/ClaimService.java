@@ -3,12 +3,9 @@ package com.campus.exchange.service;
 import com.campus.exchange.model.BlockEntry;
 import com.campus.exchange.model.Claim;
 import com.campus.exchange.model.Item;
-import com.campus.exchange.model.User;
 import com.campus.exchange.repository.*;
 import org.springframework.stereotype.Service;
-import com.campus.exchange.service.ItemService;
-import java.io.IOException;
-import java.lang.classfile.CodeBuilder;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -42,9 +39,9 @@ public class ClaimService {
         }
         Item item = itemOptional.get();
         //now we will check if that item is available for listing
-        if(!item.getStatus().equals("LISTED")){
-            throw new IllegalAccessException("This item is not available for claiming/listing");
-        }
+//        if(!item.getStatus().equals("LISTED") || !item.getStatus().equals("PENDING")){
+//            throw new IllegalAccessException("This item is not available for claiming/listing");
+//        }
 
         //now we will check if the user is blacklisted from buying that item or not
         Optional<BlockEntry> blockEntryOptional = blockRepositoryJson.findByItemAndUser(itemID,userID);
@@ -120,8 +117,8 @@ public class ClaimService {
         return claim1;
     }
 
-    public void relistClaim(Claim claim) throws Exception{
-        String itemID = claim.getClaimId();
+    public void relistItem(Claim claim) throws Exception{
+        String itemID = claim.getItemId();
         Optional<Item> OptionalItem = itemRepositoryJson.findById(itemID);
 //        Optional<Claim>claimOptional = claimRepositoryJson.findByItemID(itemID);
         if(OptionalItem.isEmpty()){
@@ -135,7 +132,7 @@ public class ClaimService {
         long timeBlockedUntil = SEVEN_DAYS_TIME + System.currentTimeMillis();
         BlockEntry userBlocked = new BlockEntry(itemID,claim.getClaimerId(),timeBlockedUntil);
         blockRepositoryJson.addBlockedUser(userBlocked);
-        logger.log("ClaimService", "Claim rejected for itemID " + itemID);
+        logger.log("ClaimService", "Item relisted for itemID " + itemID);
     }
     public void completeDeal(String itemID) throws Exception{
         Optional<Item> optionalItem = itemRepositoryJson.findById(itemID);

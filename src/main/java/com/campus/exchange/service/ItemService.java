@@ -17,7 +17,7 @@ import java.util.Optional;
 public class ItemService {
     private final ItemRepositoryJson itemRepo;
     private final CustomLogger logger;
-    List<String> categoryList = Arrays.asList("Book","Electronics","Stationary","Household","Vehicle","Tickets","Others");
+    List<String> categoryList = Arrays.asList("Book","Electronics","Stationary","Furniture","Household","Vehicle","Tickets","Others");
     /** constructor*/
     public ItemService(ItemRepositoryJson itemRepo, CustomLogger logger) {
         this.itemRepo = itemRepo;

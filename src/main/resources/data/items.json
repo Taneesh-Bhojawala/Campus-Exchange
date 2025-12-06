@@ -1,1 +1,25 @@
-[]
+[ {
+  "itemId" : "b9b76dfb-c169-4f30-b849-cfdc960c2878",
+  "listerId" : "da731af1-6885-4ea2-973f-8ee5c19f7290",
+  "college" : "IIITB",
+  "quantity" : 1,
+  "title" : "Chair",
+  "description" : "Good condition",
+  "category" : "Household",
+  "price" : 1000.0,
+  "imagePath" : "/uploads/5975f26e-c8e4-4891-a584-bc14851b1d8f.jpg",
+  "status" : "CLAIMED",
+  "createdAt" : 1765035923469
+}, {
+  "itemId" : "1d221e41-ea41-484c-89ab-46c0d31a40e1",
+  "listerId" : "da731af1-6885-4ea2-973f-8ee5c19f7290",
+  "college" : "IIITB",
+  "quantity" : 2,
+  "title" : "CLRS book",
+  "description" : "Good condition",
+  "category" : "Book",
+  "price" : 10000.0,
+  "imagePath" : "/uploads/cb50b673-32ca-473a-b1c5-b3b24e8a33e5.jpg",
+  "status" : "LISTED",
+  "createdAt" : 1765035978189
+} ]

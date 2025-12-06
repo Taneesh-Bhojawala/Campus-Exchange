@@ -151,4 +151,16 @@ public class AuthService
         return session.getUserId();  // return logged-in user
     }
 
+    public String logout(String token) throws Exception {
+        Optional<Sessions> sessionOpt = sessionRepo.findByToken(token);
+
+        if (sessionOpt.isEmpty()) {
+            throw new Exception("Invalid token or already logged out.");
+        }
+
+        sessionRepo.deleteToken(token);
+        return "Logged out successfully.";
+    }
+
+
 }
