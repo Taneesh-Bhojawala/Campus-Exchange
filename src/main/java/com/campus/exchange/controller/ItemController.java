@@ -1,6 +1,7 @@
 package com.campus.exchange.controller;
 
 import com.campus.exchange.model.Item;
+import com.campus.exchange.service.AuthService;
 import com.campus.exchange.service.FileStorageService;
 import com.campus.exchange.service.ItemService;
 import org.springframework.http.ResponseEntity;
@@ -18,17 +19,19 @@ import java.util.UUID;
 public class ItemController {
     private final ItemService itemService;
     private final FileStorageService storage;
+    private final AuthService auth;
 
     /** constructor*/
-    public ItemController(ItemService itemService,FileStorageService storage){
+    public ItemController(ItemService itemService,FileStorageService storage,AuthService authService){
         this.itemService = itemService;
         this.storage = storage;
+        this.auth = authService;
     }
 
     /** This endpoint expects multipart form data because image upload is included.*/
     @PostMapping(consumes = {"multipart/form-data"})
     public ResponseEntity<?> createItem(
-            @RequestParam String listerId,
+            @RequestHeader("Auth-Token") String token,
             @RequestParam int quantity,
             @RequestParam String title,
             @RequestParam String description,
@@ -37,6 +40,7 @@ public class ItemController {
             @RequestPart MultipartFile image
     ){
         try{
+            String listerId = auth.verifySession(token);
             String imagePath = storage.store(image);
 
             Item item = new Item();
@@ -78,6 +82,7 @@ public class ItemController {
     @GetMapping("/{id}")
     public ResponseEntity<?> getItemById(@PathVariable String id){
         try{
+
             Optional<Item> opt = itemService.findById(id);
             if (opt.isEmpty()) {
                 return ResponseEntity.notFound().build();
@@ -89,6 +94,7 @@ public class ItemController {
     }
 
     /** changes status of the item: CLAIMED,LISTED,PENDING*/
+    /**might need to remove this*/
     @PutMapping("/{id}/status")
     public ResponseEntity<?> updateStatus(
             @PathVariable String id,
@@ -103,13 +109,17 @@ public class ItemController {
     }
 
     /** shows all the items listed by the user with the userid given*/
-    @GetMapping("/listed/{userId}")
-    public ResponseEntity<?> getListedItems(@PathVariable String userId) {
+    @GetMapping("/listed")
+    public ResponseEntity<?> getListedItems(@RequestHeader("Auth-Token") String token) {
         try {
+            String userId = auth.verifySession(token);
             List<Item> items = itemService.ListedItems(userId);
             return ResponseEntity.ok(items);
         } catch (IOException e) {
             return ResponseEntity.status(500).body("Error reading items: " + e.getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body("Internal error: " + e.getMessage());
         }
+
     }
 }
