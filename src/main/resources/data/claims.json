@@ -1,1 +1,29 @@
-[]
+[ {
+  "claimId" : "17125eb6-7d17-4724-829e-42fe26442f14",
+  "itemId" : "b9b76dfb-c169-4f30-b849-cfdc960c2878",
+  "claimerId" : "b7932c75-9235-4e75-be0f-da53d9d7f7c9",
+  "listerId" : "da731af1-6885-4ea2-973f-8ee5c19f7290",
+  "status" : "ACCEPTED",
+  "createdAt" : 1765036093257
+}, {
+  "claimId" : "efce9439-4f0f-4933-ba99-7fd7acde1fca",
+  "itemId" : "1d221e41-ea41-484c-89ab-46c0d31a40e1",
+  "claimerId" : "b7932c75-9235-4e75-be0f-da53d9d7f7c9",
+  "listerId" : "da731af1-6885-4ea2-973f-8ee5c19f7290",
+  "status" : "ACCEPTED",
+  "createdAt" : 1765036123912
+}, {
+  "claimId" : "6cbb6d72-e1d5-49a0-bb80-6c85a7f24f09",
+  "itemId" : "1d221e41-ea41-484c-89ab-46c0d31a40e1",
+  "claimerId" : "f9a456be-9a56-4be8-9597-eff4e821a5e1",
+  "listerId" : "da731af1-6885-4ea2-973f-8ee5c19f7290",
+  "status" : "WAITING",
+  "createdAt" : 1765036471489
+}, {
+  "claimId" : "388fdb78-48d2-4901-8f77-02bfb5f7174e",
+  "itemId" : "b9b76dfb-c169-4f30-b849-cfdc960c2878",
+  "claimerId" : "f9a456be-9a56-4be8-9597-eff4e821a5e1",
+  "listerId" : "da731af1-6885-4ea2-973f-8ee5c19f7290",
+  "status" : "WAITING",
+  "createdAt" : 1765036495570
+} ]

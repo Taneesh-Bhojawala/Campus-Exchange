@@ -32,6 +32,7 @@ public class ItemController {
     @PostMapping(consumes = {"multipart/form-data"})
     public ResponseEntity<?> createItem(
             @RequestHeader("Auth-Token") String token,
+            @RequestParam String college,
             @RequestParam int quantity,
             @RequestParam String title,
             @RequestParam String description,
@@ -44,6 +45,7 @@ public class ItemController {
             String imagePath = storage.store(image);
 
             Item item = new Item();
+            item.setCollege(college);
             item.setItemId(UUID.randomUUID().toString());
             item.setListerId(listerId);
             item.setQuantity(quantity);
@@ -67,7 +69,7 @@ public class ItemController {
         try{
             List<Item> items;
             if(category != null && !category.isBlank()){
-                items = itemService.filter(category);
+                items = itemService.filter(category,college);
             }
             else{
                 items = itemService.getAllItems(college);
@@ -75,6 +77,8 @@ public class ItemController {
             return ResponseEntity.ok(items); // shows 200 ok on postman indicating success
         }catch (IOException e) {
             return ResponseEntity.status(500).body("Error reading items: " + e.getMessage());
+        }catch(Exception e){
+            return ResponseEntity.status(403).body("Error reading items: " + e.getMessage());
         }
     }
 

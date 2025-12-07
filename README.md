@@ -6,19 +6,19 @@
 
 ## 📖 Overview
 
-Campus-Exchange is hyperlocal marketplace exculisively for students in a college community.
+Campus-Exchange is hyperlocal marketplace exclusively for students in a college community.
 
 ## 💡 Motivation
-Our main motivation was to fix the idea of selling such products over in WhatsApp groups. So we decided to make an independent centralized application where items can be traded with trust and ease.
+Our main motivation was to fix the idea of selling products over in WhatsApp groups. So we decided to make an independent centralized application where items can be traded with trust and ease.
 
 ## ✨ Key Features
 
 - **🔐 Verified Access:** Users have to register themselves as part of the college community and select their college then register themselves andbe part of the community.
-- **Login via token**:
-- **OTP Verification**:
-- **Item Listing**:
-- **Item Delisting**:
-- **Blocked User**:
+- **Login via token**: Users are given a random token upon every login visit which has a fixed duration of expiry after which (s)he has to login again.
+- **OTP Verification**: OTP verification sent over e-mail registered by the users with expiry of 2 minutes.
+- **Item Listing**: Items can be listed by the users with price, quantity and image.
+- **Item Delisting**: Items can be manually delisted or are automatically delisted after 1 year if not sold.
+- **Blocked User**: Users who do not wish
 - **Claim Item**:
 - **LogFile Generation**:
 

@@ -2,10 +2,13 @@ package com.campus.exchange.service;
 
 import com.campus.exchange.model.Item;
 import com.campus.exchange.repository.ItemRepositoryJson;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,7 +17,7 @@ import java.util.Optional;
 public class ItemService {
     private final ItemRepositoryJson itemRepo;
     private final CustomLogger logger;
-
+    List<String> categoryList = Arrays.asList("Book","Electronics","Stationary","Furniture","Household","Vehicle","Tickets","Others");
     /** constructor*/
     public ItemService(ItemRepositoryJson itemRepo, CustomLogger logger) {
         this.itemRepo = itemRepo;
@@ -37,16 +40,19 @@ public class ItemService {
     }
 
     /** filters the item according to the category given and returns filtered items list*/
-    public List<Item> filter(String category) throws IOException{
-        List<Item> list = itemRepo.findAll();
-        List<Item> filteredItems = new ArrayList<>();
-
-        for(Item item : list){
-            if(item.getCategory().equals(category)){
-                filteredItems.add(item);
+    public List<Item> filter(String category,String college) throws Exception{
+            if(!categoryList.contains(category)){
+                throw new Exception("Invalid Category");
             }
-        }
-        return filteredItems;
+            List<Item> list = itemRepo.findAll();
+            List<Item> filteredItems = new ArrayList<>();
+
+            for(Item item : list){
+                if(item.getCategory().equals(category) && item.getCollege().equals(college)){
+                    filteredItems.add(item);
+                }
+            }
+            return filteredItems;
     }
 
     /** returns item with item id = itemId*/
