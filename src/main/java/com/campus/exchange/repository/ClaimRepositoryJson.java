@@ -24,10 +24,12 @@ public class ClaimRepositoryJson {
     }
 
     public List<Claim> findAll(){
+        //return the list by converting the json format to an iterable list
         return jsonUtils.readList(filePath,typeRef);
     }
 
     public Optional<Claim> findByID(String claimID){
+        //find the claim by claimId
         List<Claim> claimList = findAll();
         for(Claim claim: claimList){
             if(claim.getClaimId().equals(claimID)){
@@ -37,6 +39,7 @@ public class ClaimRepositoryJson {
         return Optional.empty();
     }
     public Optional<Claim> findByItemId(String itemID){
+        //find the claim by its ItemId
         List<Claim> claimList = findAll();
         for(Claim claim: claimList){
             if(claim.getItemId().equals(itemID)){
@@ -46,6 +49,7 @@ public class ClaimRepositoryJson {
         return Optional.empty();
     }
     public List<Claim> findByClaimerId(String claimerId) {
+        //find the claim by claimerId
         List<Claim> result = new ArrayList<>();
         List<Claim> all = findAll();
         for (Claim c : all) {
@@ -57,6 +61,7 @@ public class ClaimRepositoryJson {
     }
 
     public void save(Claim claim) {
+        //save a particular claim
         List<Claim> claimList = findAll();
         if (claim.getClaimId() == null || claim.getClaimId().isEmpty()) {
             claim.setClaimId(UUID.randomUUID().toString());
@@ -67,6 +72,7 @@ public class ClaimRepositoryJson {
     }
 
     public void updateClaimList(Claim claim){
+        //update your clain list
         List<Claim> claimList = findAll();
         int i = 0;
         boolean visited = false;
@@ -85,6 +91,7 @@ public class ClaimRepositoryJson {
     }
 
     public void deleteByID(String claimID){
+        //delete your claim by id provided
         List<Claim> all = findAll();
         all.removeIf(c -> c.getClaimId().equals(claimID));
         jsonUtils.writeList(filePath, all);
