@@ -14,12 +14,14 @@ import java.util.UUID;
 
 @Service
 public class ClaimService {
+    //define your Json files
     private final ClaimRepositoryJson claimRepositoryJson;
     private final ItemRepositoryJson itemRepositoryJson;
     private final BlockRepositoryJson blockRepositoryJson;
     private final ItemService itemService;
     private final CustomLogger logger;
     private final NotificationService notificationService;
+    //define your constructors
     public ClaimService(ClaimRepositoryJson claimRepositoryJson, ItemRepositoryJson itemRepositoryJson, BlockRepositoryJson blockRepositoryJson, ItemService itemService, CustomLogger logger, NotificationService notificationService) {
         this.claimRepositoryJson = claimRepositoryJson;
         this.itemRepositoryJson = itemRepositoryJson;
@@ -28,7 +30,6 @@ public class ClaimService {
         this.logger = logger;
         this.notificationService = notificationService;
     }
-//    private ItemService itemService = new ItemService(itemRepositoryJson);
     public Claim createClaim(String itemID,String userID) throws Exception {
         logger.log("ClaimService", "Claim initiated for itemID " + itemID + " by userID " + userID);
         blockRepositoryJson.removeExpiredUsers();
@@ -38,11 +39,6 @@ public class ClaimService {
             throw new NoSuchElementException("Item not found!");
         }
         Item item = itemOptional.get();
-        //now we will check if that item is available for listing
-//        if(!item.getStatus().equals("LISTED") || !item.getStatus().equals("PENDING")){
-//            throw new IllegalAccessException("This item is not available for claiming/listing");
-//        }
-
         //now we will check if the user is blacklisted from buying that item or not
         Optional<BlockEntry> blockEntryOptional = blockRepositoryJson.findByItemAndUser(itemID,userID);
 
@@ -82,13 +78,23 @@ public class ClaimService {
             throw new Exception("Item is not listed");
         }
         itemService.updateStatus("PENDING",itemID);
-        claim1.setStatus("ACCEPTED");
-        claimRepositoryJson.updateClaimList(claim1);
+        List<Claim> claimList = claimRepositoryJson.findAll();
+        for(Claim claim2:claimList) {
+            if(claim2 == claim1) {
+                //make it accepted only for that particualr claim accpeted by the user
+                claim2.setStatus("ACCEPTED");
+                claimRepositoryJson.updateClaimList(claim2);
+            } else if(claim2.getItemId().equals(itemID)) {
+                    //make rest of the claims rejected by default
+                rejectClaim(claim2);
+            }
+        }
         Optional<Item> itemOptional = itemRepositoryJson.findById(itemID);
         if(itemOptional.isEmpty()){
             throw new NoSuchElementException("Item not found!");
         }
         Item item = itemOptional.get();
+        //send notification to both the user and receiver about the status of their requests
         notificationService.notifyClaimAccepted(itemID,claim.getListerId(),claim.getClaimerId(),item.getTitle());
         logger.log("ClaimService", "Claim accepted for itemID " + itemID);
         return claim1;
@@ -108,6 +114,7 @@ public class ClaimService {
             throw new NoSuchElementException("Item not found!");
         }
         Item item = itemOptional.get();
+        //send the notifications to both the claimer and lister about the status of their requests
         notificationService.notifyClaimRejected(itemID,claim.getListerId(),claim.getClaimerId(),item.getTitle());
         logger.log("ClaimService", "Claim rejected for itemID " + itemID);
         return claim1;

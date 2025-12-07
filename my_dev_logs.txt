@@ -1,0 +1,6 @@
+[2025-12-06 18:17:24] [ExpirationService] : PendingSignup omaghera1292006@gmail.com has been deleted.
+[2025-12-06 18:46:56] [AuthService] : Signup request: Taneesh2522@outlook.com
+[2025-12-06 18:46:56] [AuthService] : New Signup Request by name: Omkumar, email: Taneesh2522@outlook.com
+[2025-12-06 18:47:42] [AuthService] : OTP sent to: Taneesh2522@outlook.com
+[2025-12-06 18:47:42] [AuthService] : OTP sent to: Taneesh2522@outlook.com
+[2025-12-06 18:49:13] [ExpirationService] : PendingSignup Taneesh2522@outlook.com has been deleted.

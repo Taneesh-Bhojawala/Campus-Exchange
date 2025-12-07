@@ -26,6 +26,7 @@ public class BlockRepositoryJson {
     }
 
     public Optional<BlockEntry> findByItemAndUser(String itemID,String userID){
+        //get the particular blocked user ---> itemID
         List<BlockEntry> blockEntries = findAll();
         for(BlockEntry entries:blockEntries){
             if(entries.getItemID().equals(itemID) && entries.getUserID().equals(userID)){
@@ -42,6 +43,7 @@ public class BlockRepositoryJson {
     }
 
     public void removeExpiredUsers(){
+        //a helpher function to run which updates the blocked users list
         long presentTime = System.currentTimeMillis();
         List<BlockEntry> blockedEntries = findAll();
         blockedEntries.removeIf(b -> b.getBlockedUntil() < presentTime);
