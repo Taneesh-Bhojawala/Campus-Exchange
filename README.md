@@ -34,7 +34,7 @@ Our main motivation was to fix the idea of selling products over in WhatsApp gro
 
     ```bash
     git clone https://github.com/Taneesh-Bhojawala/Java-Project-SEM-3.git
-    cd project-name
+    cd project-mars
     ```
 2. **Check if Java is installed:**
     ```bash
