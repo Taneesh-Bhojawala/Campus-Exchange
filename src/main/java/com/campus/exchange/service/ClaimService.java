@@ -70,6 +70,7 @@ public class ClaimService {
     }
 
     public Claim acceptClaim(Claim claim) throws Exception{
+        //claim is accepted and all other claims are rejected
         String itemID = claim.getItemId();
         Optional<Claim>claimOptional = claimRepositoryJson.findByItemId(itemID);
         if(claimOptional.isEmpty()){
@@ -83,9 +84,6 @@ public class ClaimService {
         itemService.updateStatus("PENDING",itemID);
         claim1.setStatus("ACCEPTED");
         claimRepositoryJson.updateClaimList(claim1);
-         /*
-         * here we will have the code for accepted claim
-         * */
         Optional<Item> itemOptional = itemRepositoryJson.findById(itemID);
         if(itemOptional.isEmpty()){
             throw new NoSuchElementException("Item not found!");
@@ -96,6 +94,7 @@ public class ClaimService {
         return claim1;
     }
     public Claim rejectClaim(Claim claim) throws Exception{
+        //lister has the option to reject a particular claim
         String itemID = claim.getItemId();
         Optional<Claim>claimOptional = claimRepositoryJson.findByItemId(itemID);
         if(claimOptional.isEmpty()){
@@ -104,9 +103,6 @@ public class ClaimService {
         Claim claim1 = claimOptional.get();
         claim1.setStatus("REJECTED");
         claimRepositoryJson.deleteByID(itemID);
-        /*
-         * here we will have the code for accepted claim
-         * */
         Optional<Item> itemOptional = itemRepositoryJson.findById(itemID);
         if(itemOptional.isEmpty()){
             throw new NoSuchElementException("Item not found!");
@@ -118,15 +114,15 @@ public class ClaimService {
     }
 
     public void relistItem(Claim claim) throws Exception{
+        //item will be relisted if the trade cannot happen under some circumstances
         String itemID = claim.getItemId();
         Optional<Item> OptionalItem = itemRepositoryJson.findById(itemID);
-//        Optional<Claim>claimOptional = claimRepositoryJson.findByItemID(itemID);
         if(OptionalItem.isEmpty()){
             throw new Exception("Item not found.");
         }
         itemService.updateStatus("LISTED",itemID);
         /*
-        * block the user due to which lister had tp relist the item
+        * block the user due to which lister had to relist the item
         * */
         long SEVEN_DAYS_TIME = 7L * 24 * 60 * 60 * 1000;
         long timeBlockedUntil = SEVEN_DAYS_TIME + System.currentTimeMillis();
@@ -135,6 +131,7 @@ public class ClaimService {
         logger.log("ClaimService", "Item relisted for itemID " + itemID);
     }
     public void completeDeal(String itemID) throws Exception{
+        //deal is completed only after the item is physically exchanged by the both the parties
         Optional<Item> optionalItem = itemRepositoryJson.findById(itemID);
         if(optionalItem.isEmpty()){
             throw new Exception("Item not found");
@@ -143,6 +140,7 @@ public class ClaimService {
         logger.log("ClaimService", "Claim completed for itemID " + itemID);
     }
     public List<Claim> getAllClaims(String listerID){
+        //get all the claims for a particular lister
         List<Claim> claimList = claimRepositoryJson.findAll();
         List<Claim> claimList1 = new ArrayList<>();
         for(Claim claim:claimList){
