@@ -42,7 +42,6 @@ Our main motivation was to fix the idea of selling products over in WhatsApp gro
 | `GET` | `/api/items` | **Get Items**: Fetches all items, with optional filtering by `category` and `college`. |
 | `GET` | `/api/items/{id}` | **Get Item by ID**: Retrieves detailed information for a specific item. |
 | `GET` | `/api/items/listed` | **Get Listed Items**: Displays all items currently listed by the logged-in user. |
-| `PUT` | `/api/items/{id}/status` | **Update Status**: Manually updates an item's status (e.g., CLAIMED, LISTED). |
 
 ### 🤝 Claim Controller
 | Method | Endpoint | Description |

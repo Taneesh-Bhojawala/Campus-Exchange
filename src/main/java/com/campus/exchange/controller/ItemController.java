@@ -97,21 +97,6 @@ public class ItemController {
         }
     }
 
-    /** changes status of the item: CLAIMED,LISTED,PENDING*/
-    /**might need to remove this*/
-    @PutMapping("/{id}/status")
-    public ResponseEntity<?> updateStatus(
-            @PathVariable String id,
-            @RequestParam String status
-    ) {
-        try {
-            itemService.updateStatus(status, id);
-            return ResponseEntity.ok("Status updated to: " + status);
-        } catch (IOException e) {
-            return ResponseEntity.status(500).body("Error updating status: " + e.getMessage());
-        }
-    }
-
     /** shows all the items listed by the user with the userid given*/
     @GetMapping("/listed")
     public ResponseEntity<?> getListedItems(@RequestHeader("Auth-Token") String token) {
