@@ -39,8 +39,8 @@ Our main motivation was to fix the idea of selling products over in WhatsApp gro
 1.  **Clone the repository**
 
     ```bash
-    git clone https://github.com/Taneesh-Bhojawala/Java-Project-SEM-3.git
     cd java-app
+    git clone https://github.com/Taneesh-Bhojawala/Java-Project-SEM-3.git
     ```
 2. **Check if Java is installed:**
     ```bash
