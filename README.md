@@ -58,7 +58,6 @@ Our main motivation was to fix the idea of selling products over in WhatsApp gro
 | :--- | :--- | :--- |
 | `GET` | `/api/notifications/{userId}` | **Get Notifications**: Retrieves alerts for a specific user after verifying their session. |
 
-- ****
 ## 🛠️ Tech Stack
 
 - **Backend:** Spring Framework
