@@ -13,15 +13,21 @@ Our main motivation was to fix the idea of selling products over in WhatsApp gro
 
 ## ✨ Key Features
 
-- **🔐 Verified Access:** Users have to register themselves as part of the college community and select their college then register themselves andbe part of the community.
+- **Verified Access:** Users have to register themselves as part of the college community and select their college then register themselves andbe part of the community.
 - **Login via token**: Users are given a random token upon every login visit which has a fixed duration of expiry after which (s)he has to login again.
 - **OTP Verification**: OTP verification sent over e-mail registered by the users with expiry of 2 minutes.
 - **Item Listing**: Items can be listed by the users with price, quantity and image.
-- **Item Delisting**: Items can be manually delisted or are automatically delisted after 1 year if not sold.
-- **Blocked User**: Users who do not wish
-- **Claim Item**:
-- **LogFile Generation**:
+- **Item Delisting**: Items are automatically delisted after 1 year if not sold.
+- **Blocked User**: Some uesrs can be blocked by the item lister if the deal is not successful even after them claiming the items
+- **Image Uploading:** Images can be uploaded using multi-path
+- **Filter Feature:** Items can be filtered based on the categories provided.
+- **Notification Updates:** Claimers and Listers are provided with timely notifications
+- **Claim Item**: Items listed can be claimed prior to which lister receives the notification of the claim
+- **LogFile Generation**: Every activity of the user is tracked and listed in a LogFile which can be used for security purposes.
 
+## API Endpoints Description
+
+- ****
 ## 🛠️ Tech Stack
 
 - **Backend:** Spring Framework
@@ -34,7 +40,7 @@ Our main motivation was to fix the idea of selling products over in WhatsApp gro
 
     ```bash
     git clone https://github.com/Taneesh-Bhojawala/Java-Project-SEM-3.git
-    cd project-mars
+    cd java-app
     ```
 2. **Check if Java is installed:**
     ```bash
