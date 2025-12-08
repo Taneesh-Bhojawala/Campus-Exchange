@@ -25,7 +25,38 @@ Our main motivation was to fix the idea of selling products over in WhatsApp gro
 - **Claim Item**: Items listed can be claimed prior to which lister receives the notification of the claim
 - **LogFile Generation**: Every activity of the user is tracked and listed in a LogFile which can be used for security purposes.
 
-## API Endpoints Description
+## 🔌 Endpoints Description
+
+### 🛡️ Authentication Controller
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| `POST` | `/api/auth/signup-request` | **Signup**: Initiates registration by accepting user details and delegating logic to AuthService. |
+| `POST` | `/api/auth/verify-otp` | **Verify OTP**: Validates the One-Time Password to complete registration and create the user. |
+| `POST` | `/api/auth/login` | **Login**: Authenticates user via email/password and returns session data. |
+| `POST` | `/api/auth/logout` | **Logout**: Invalidates the current session token. |
+
+### 📦 Item Controller
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| `POST` | `/api/items` | **Create Item**: Uploads an image and details to list a new item (Multipart request). |
+| `GET` | `/api/items` | **Get Items**: Fetches all items, with optional filtering by `category` and `college`. |
+| `GET` | `/api/items/{id}` | **Get Item by ID**: Retrieves detailed information for a specific item. |
+| `GET` | `/api/items/listed` | **Get Listed Items**: Displays all items currently listed by the logged-in user. |
+| `PUT` | `/api/items/{id}/status` | **Update Status**: Manually updates an item's status (e.g., CLAIMED, LISTED). |
+
+### 🤝 Claim Controller
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| `POST` | `/api/claims` | **Create Claim**: Allows a buyer to claim an item using the `ClaimRequest` body. |
+| `PUT` | `/api/claims/accept` | **Accept Claim**: Allows the lister (seller) to accept a specific claim request. |
+| `PUT` | `/api/claims/reject` | **Reject Claim**: Allows the lister to reject a claim request. |
+| `PUT` | `/api/claims/relist` | **Relist Item**: Puts an item back on the market after a failed deal and blocks the claimer. |
+| `PUT` | `/api/claims/item/{id}/complete`| **Complete Deal**: Marks a transaction as successfully completed. |
+
+### 🔔 Notification Controller
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| `GET` | `/api/notifications/{userId}` | **Get Notifications**: Retrieves alerts for a specific user after verifying their session. |
 
 - ****
 ## 🛠️ Tech Stack
