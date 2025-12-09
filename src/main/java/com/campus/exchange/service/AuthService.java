@@ -26,8 +26,9 @@ public class AuthService
     private final BCryptPasswordEncoder passwordEncoder;
     private final SessionRepositoryJson sessionRepo;
     private final CustomLogger logger;
+    private final CollegeService collegeService;
 
-    public AuthService(JavaMailSender javaMailSender, PendingSignupRepositoryJson pendingRepo, UserRepositoryJson userRepo, BCryptPasswordEncoder passwordEncoder, SessionRepositoryJson sessionRepo, CustomLogger logger)
+    public AuthService(JavaMailSender javaMailSender, PendingSignupRepositoryJson pendingRepo, UserRepositoryJson userRepo, BCryptPasswordEncoder passwordEncoder, SessionRepositoryJson sessionRepo, CustomLogger logger, CollegeService collegeService)
     {
         this.javaMailSender = javaMailSender;
         this.pendingRepo = pendingRepo;
@@ -35,6 +36,7 @@ public class AuthService
         this.passwordEncoder = passwordEncoder;
         this.sessionRepo = sessionRepo;
         this.logger = logger;
+        this.collegeService = collegeService;
     }
 
     private String generateOtp()
@@ -45,6 +47,13 @@ public class AuthService
     public String signupRequest(SignupRequest signupRequest) throws Exception
     {
         logger.log("AuthService", "New Signup Request by name: " + signupRequest.getName() + ", email: " + signupRequest.getEmail());
+
+        if(!collegeService.checkListedCollege(signupRequest.getCollege()))
+        {
+            List<String> allowed = collegeService.getAll();
+            throw new Exception("College not supported. Allowed colleges: " + allowed);
+        }
+
         Optional<User> user = userRepo.findByEmail(signupRequest.getEmail());
         if(user.isPresent())
         {
