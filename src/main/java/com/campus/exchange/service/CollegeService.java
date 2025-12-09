@@ -23,7 +23,7 @@ public class CollegeService {
         this.filePath = Path.of(props.getDataFolder(),"colleges.json");
         this.logger = logger;
     }
-    List<String> getAll() throws Exception{
+    public List<String> getAll() throws Exception{
         //check if the file path exists or not
         // At the top
         logger.log("CollegeService", "Reading college list from file");
@@ -34,7 +34,7 @@ public class CollegeService {
         List<String> list = mapper.readValue(filePath.toFile(),typeReference);
         return list;
     }
-    boolean checkListedCollege(String collegeName) throws Exception{
+    public boolean checkListedCollege(String collegeName) throws Exception{
         //convert all the college names to lowercase with no whitecase characters
         String modifiedCollege = collegeName.toLowerCase().trim().replaceAll("\\s+","");
         List<String>colleges = getAll();
