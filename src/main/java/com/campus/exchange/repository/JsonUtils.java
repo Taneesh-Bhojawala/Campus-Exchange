@@ -19,10 +19,10 @@ import java.util.List;
 public class JsonUtils
 {
     /*Used to convert json to java object and vice versa*/
-    private ObjectMapper mapper = new ObjectMapper();
+    private final ObjectMapper mapper = new ObjectMapper();
 
     /*Locks object for synchronization, only 1 can change file at a time*/
-    private Object fileLock = new Object();
+    private final Object fileLock = new Object();
 
     /*Just like the templates in cpp, T is the placeholder for the type eg User, Claim, Item
     * Reads and returns all data from the JSON file as a List<T>*/
