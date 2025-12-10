@@ -36,6 +36,8 @@ Our main motivation was to fix the idea of selling products over in WhatsApp gro
 
 ## 🔌 Endpoints Description
 
+Base URL: http://localhost:8080
+
 ### 🛡️ Authentication Controller
 | Method | Endpoint | Description |
 | :--- | :--- | :--- |
