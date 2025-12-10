@@ -2,8 +2,6 @@ package com.campus.exchange.service;
 
 import com.campus.exchange.model.Item;
 import com.campus.exchange.repository.ItemRepositoryJson;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;

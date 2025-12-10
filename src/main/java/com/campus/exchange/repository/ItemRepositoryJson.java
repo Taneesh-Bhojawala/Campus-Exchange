@@ -3,7 +3,6 @@ package com.campus.exchange.repository;
 import com.campus.exchange.config.AppProperties;
 import com.campus.exchange.model.Item;
 import com.fasterxml.jackson.core.type.TypeReference;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import java.io.IOException;
