@@ -101,4 +101,4 @@ Our main motivation was to fix the idea of selling products over in WhatsApp gro
 
 idhar licaense dalna padega
 
-Distributed under the MIT License. See `LICENSE` for more information.
+Distributed under the MIT License. See [LICENSE](https://github.com/Taneesh-Bhojawala/Java-Project-SEM-3/blob/main/LICENSE) for more information.
