@@ -90,7 +90,7 @@ public class ClaimService {
             throw new NoSuchElementException("Item not found!");
         }
         Item item = itemOptional.get();
-        //send notification to both the user and receiver about the status of their requests
+        //send notification to  both the user and receiver about the status of their requests
         notificationService.notifyClaimAccepted(itemID,claim.getListerId(),claim.getClaimerId(),item.getTitle());
         logger.log("ClaimService", "Claim accepted for itemID " + itemID);
         return claim1;
