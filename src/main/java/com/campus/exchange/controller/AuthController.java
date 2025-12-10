@@ -3,48 +3,38 @@ package com.campus.exchange.controller;
 import com.campus.exchange.dto.SignupRequest;
 import com.campus.exchange.dto.VerifyOtpRequest;
 import com.campus.exchange.model.User;
-import com.campus.exchange.repository.PendingSignupRepositoryJson;
-import com.campus.exchange.repository.UserRepositoryJson;
 import com.campus.exchange.service.AuthService;
-import com.campus.exchange.service.CustomLogger;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 
 @RestController
+//base path for all the authentication endpoints
 @RequestMapping("/api/auth")
 public class AuthController
 {
-
-    private final CustomLogger logger;
     private final AuthService authService;
-    private final PendingSignupRepositoryJson pendingRepo;
-    private final UserRepositoryJson userRepo;
-    private final BCryptPasswordEncoder passwordEncoder;
 
-    public AuthController(AuthService authService, PendingSignupRepositoryJson pendingRepo, UserRepositoryJson userRepo, BCryptPasswordEncoder passwordEncoder, CustomLogger logger)
+    //constructor injection to provide the necessary beans
+    public AuthController(AuthService authService)
     {
 
         this.authService = authService;
-        this.pendingRepo = pendingRepo;
-        this.userRepo = userRepo;
-        this.passwordEncoder = passwordEncoder;
-        this.logger = logger;
     }
 
-    /**Create a new signup request
-     * Body- SignupRequest*/
+    /**Endpoint for creating a new signup request
+     * Body- SignupRequest DTO is taken as input
+     * that request dto is passed to the signupRequest method form AuthService which initiates the signup process*/
     @PostMapping("/signup-request")
     public ResponseEntity<?> signup(@RequestBody SignupRequest request)
     {
         try
-        {String message = authService.signupRequest(request);
+        {
+            String message = authService.signupRequest(request);
             return ResponseEntity.status(HttpStatus.CREATED).body(message);
-
         }
         catch (Exception e)
         {
@@ -52,14 +42,15 @@ public class AuthController
         }
     }
 
+    /**
+     * Endpoint for verifying otp
+     * Takes VerifyOtpRequest DTO as input and passes it to the verifyOtp method from AuthService*/
     @PostMapping("/verify-otp")
     public ResponseEntity<?> verifyOtp(@RequestBody VerifyOtpRequest request)
     {
         try
         {
-            // Add at the very start
             User user = authService.verifyOtp(request);
-            logger.log("AuthService", "User verified and created: " + user.getUserId());
             return ResponseEntity.ok(user);
         }
         catch (Exception e)
@@ -68,6 +59,9 @@ public class AuthController
         }
     }
 
+    /**
+     * login endpoint
+     * if correct password, server returns the session token*/
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestParam String email, @RequestParam String password)
     {
@@ -82,6 +76,9 @@ public class AuthController
         }
     }
 
+    /**
+     * logout endpoint
+     * session entry is deleted*/
     @PostMapping("/logout")
     public ResponseEntity<?> logout(@RequestHeader("Auth-Token") String token) {
         try {
@@ -91,5 +88,4 @@ public class AuthController
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
     }
-
 }
