@@ -78,6 +78,7 @@ public class ClaimService {
         for(Claim claim2:claimList) {
             if(Objects.equals(claim2.getClaimId(), claim1.getClaimId())) {
                 //make it accepted only for that particular claim accepted by the user
+                claim1.setStatus("ACCEPTED");
                 claim2.setStatus("ACCEPTED");
                 claimRepositoryJson.updateClaimList(claim2);
             } else if(claim2.getItemId().equals(itemID)) {
