@@ -43,7 +43,7 @@ public class BlockRepositoryJson {
     }
 
     public void removeExpiredUsers(){
-        //a helpher function to run which updates the blocked users list
+        //a helper function to run which updates the blocked users list
         long presentTime = System.currentTimeMillis();
         List<BlockEntry> blockedEntries = findAll();
         blockedEntries.removeIf(b -> b.getBlockedUntil() < presentTime);

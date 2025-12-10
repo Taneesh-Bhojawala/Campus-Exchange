@@ -7,18 +7,16 @@ import com.campus.exchange.repository.PendingSignupRepositoryJson;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
-//import java.io.IOException;
 import java.time.Instant;
 import java.util.List;
 
-
 /**
- * ExpirationService:
- * - Expires item listings automatically after 5 minutes (sets status = "EXPIRED" and notifies owner)
- * - Deletes pending signup entries older than 5 minutes (if OTP not verified)
- *
- * This class uses a scheduled task that runs every minute and performs both cleanup tasks.
+ * Service responsible for background cleanup tasks.
+ * It periodically checks for expired items and pending signups (OTPs)
+ * It removes them from the system to keep data clean.
  */
+
+
 @Service
 public class ExpirationService {
 
@@ -26,36 +24,38 @@ public class ExpirationService {
     private final PendingSignupRepositoryJson pendingSignupRepository;
     private final NotificationService notificationService;
     private final CustomLogger logger;
+    private final FileStorageService fileStorageService;
 
-    private static final long EXPIRATION_MS_ITEMEXPIRY = 3000000;
+    //Time in milliseconds after which item expires (10 minutes for demo purpose)
+    private static final long EXPIRATION_MS = 600000L;
 
     public ExpirationService(ItemRepositoryJson itemRepository,
                              PendingSignupRepositoryJson pendingSignupRepository,
-                             NotificationService notificationService, CustomLogger logger) {
+                             NotificationService notificationService,
+                             CustomLogger logger,
+                             FileStorageService fileStorageService) {
         this.itemRepository = itemRepository;
         this.pendingSignupRepository = pendingSignupRepository;
         this.notificationService = notificationService;
         this.logger = logger;
+        this.fileStorageService = fileStorageService;
     }
 
-    /**
-    Scheduler runs every minute. Runs both functions. They both check time stamps.
-     */
+    //This function runs automatically every 30 seconds
     @Scheduled(fixedDelayString = "${app.expiration.check-interval-ms:30000}")
     public void scheduledExpiryTask() {
-//        System.out.println("Scheduling expiry task");
         expireOldItems();
         cleanupPendingSignups();
     }
 
     /**
-     * Expires items older than EXPIRATION_MS (Here 5 minutes).
-     * Marks them with status "EXPIRED", updates the repository, and notifies the lister.
+     * Checks all items in the repository.
+     * If an item is 'LISTED' or 'PENDING' and is older than EXPIRATION_MS,
+     * it deletes the item, its associated image, and notifies the owner.
      */
     public void expireOldItems() {
         try {
             List<Item> items = itemRepository.findAll();
-
 
             for (Item item : items) {
                 String status = item.getStatus();
@@ -64,29 +64,31 @@ public class ExpirationService {
                 boolean candidate = "LISTED".equalsIgnoreCase(status) || "PENDING".equalsIgnoreCase(status);
                 if (!candidate) continue;
                 long now = Instant.now().toEpochMilli();
-                long createdAt = item.getCreatedAt(); // epoch millis
-                if (now - createdAt >= EXPIRATION_MS_ITEMEXPIRY) {
-                    // notify owner
+                long createdAt = item.getCreatedAt();
+                if (now - createdAt >= EXPIRATION_MS) {
                     try {
+                        if (item.getImagePath() != null && !item.getImagePath().isBlank()) {
+                            fileStorageService.delete(item.getImagePath());
+                        }
                         itemRepository.deleteById(item.getItemId());
+                        logger.log("ExpirationService", "Expired and deleted item: " + item.getItemId());
+
                         notificationService.notifyItemExpired(item.getItemId(), item.getListerId(), item.getTitle());
-                        logger.log("ExpirationService", "Item " + item.getItemId() + " has been expired.");
 
                     } catch (Exception e) {
-                        // don't fail the entire loop for a single notification failure
                         e.printStackTrace();
+                        logger.log("ExpirationService", "Error expiring item: " + e.getMessage());
                     }
                 }
             }
         } catch (Exception e) {
-            // repository read/write error
             e.printStackTrace();
         }
     }
 
     /**
-     * Deletes pending signups whose expiresAt <= now (OTP not verified in time).
-     * We rely on PendingSignup.expiresAt being set by AuthService when OTP is created.
+     * Checks all pending signups (users verifying OTP).
+     * If the OTP validity period has passed, the pending entry is removed.
      */
     public void cleanupPendingSignups() {
         try {
@@ -94,18 +96,16 @@ public class ExpirationService {
             long now = Instant.now().toEpochMilli();
 
             for (PendingSignup p : pendings) {
-                // If expiresAt is not set, skip. AuthService should set expiresAt when creating OTP.
                 long expiresAt = p.getExpiresAt();
                 if (expiresAt <= 0) continue;
 
                 if (expiresAt <= now) {
-                    // remove pending entry (user didn't verify OTP in time)
                     try {
                         pendingSignupRepository.deleteByEmail(p.getEmail());
-                        // optional: print/log so you can demonstrate deletion in console
-                        logger.log("ExpirationService", "PendingSignup " + p.getEmail() + " has been deleted.");
+                        logger.log("ExpirationService", "Pending Signup Deleted/Expired: " + p.getEmail());
                     } catch (Exception ex) {
                         ex.printStackTrace();
+                        logger.log("ExpirationService", "Error deleting signup: " + ex.getMessage());
                     }
                 }
             }

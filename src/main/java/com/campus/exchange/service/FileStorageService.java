@@ -27,8 +27,10 @@ import java.util.UUID;
 public class FileStorageService {
 
     private final Path uploadDir;
+    private final CustomLogger logger;
 
-    public FileStorageService(AppProperties props) {
+    public FileStorageService(AppProperties props, CustomLogger logger) {
+        this.logger = logger;
         try {
             this.uploadDir = Paths.get(props.getUploadDir()).toAbsolutePath().normalize();
             Files.createDirectories(this.uploadDir);
@@ -37,9 +39,7 @@ public class FileStorageService {
         }
     }
 
-    /**
-     * Store uploaded image and return public path (e.g. "/uploads/uuid.jpg")
-     */
+    //This stores the image uploaded and returns the public path
     public String store(MultipartFile file) {
         if (file == null || file.isEmpty()) {
             return null;
@@ -61,7 +61,8 @@ public class FileStorageService {
             }
 
             Files.copy(file.getInputStream(), target, StandardCopyOption.REPLACE_EXISTING);
-            System.out.println("[FileStorageService] Image uploaded successfully");
+//            System.out.println("[FileStorageService] Image uploaded successfully");
+            logger.log("FileStorageService", "Image uploaded successfully");
 
             return "/uploads/" + filename;
 
@@ -70,13 +71,12 @@ public class FileStorageService {
         }
     }
 
-    /**
-     * Delete stored file using public path or filename.
-     */
+    //Deletes stored file using path name
     public boolean delete(String publicOrFileName) {
         if (publicOrFileName == null || publicOrFileName.isBlank()) return false;
 
         try {
+
             String fileName = publicOrFileName;
             if (fileName.startsWith("/")) {
                 int idx = fileName.lastIndexOf('/');
@@ -88,52 +88,11 @@ public class FileStorageService {
             if (!target.getParent().equals(uploadDir)) {
                 throw new RuntimeException("Invalid file delete request");
             }
-
-            System.out.println("[FileStorageService] Deleting file: " + fileName);
-
+            logger.log("FileStorageService", "file deleted: " + fileName);
             return Files.deleteIfExists(target);
         } catch (Exception e) {
             throw new RuntimeException("Failed to delete file", e);
         }
     }
 
-    /**
-     * Load file as a Resource for download.
-     */
-    public Resource loadAsResource(String fileName) {
-        try {
-            if (fileName == null || fileName.isBlank()) {
-                throw new RuntimeException("Filename empty");
-            }
-
-            String clean = Paths.get(fileName).getFileName().toString();
-            Path file = uploadDir.resolve(clean).normalize();
-
-            if (!file.getParent().equals(uploadDir)) {
-                throw new RuntimeException("Invalid file access");
-            }
-
-            Resource resource = new UrlResource(file.toUri());
-
-            if (resource.exists() && resource.isReadable()) {
-                return resource;
-            } else {
-                throw new RuntimeException("File not found: " + clean);
-            }
-
-        } catch (MalformedURLException e) {
-            throw new RuntimeException("Malformed URL loading file", e);
-        } catch (Exception e) {
-            throw new RuntimeException("Could not load file", e);
-        }
-    }
-
-    /**
-     * Get absolute path of stored file.
-     */
-    public Path getAbsolutePath(String fileName) {
-        if (fileName == null) return null;
-        String clean = Paths.get(fileName).getFileName().toString();
-        return uploadDir.resolve(clean).normalize();
-    }
 }

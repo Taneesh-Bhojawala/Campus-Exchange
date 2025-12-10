@@ -38,6 +38,7 @@ public class AuthController
         }
         catch (Exception e)
         {
+            logger.log("AuthService", "Error in sending signup request");
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
     }
@@ -55,6 +56,7 @@ public class AuthController
         }
         catch (Exception e)
         {
+            logger.log("AuthService", "Error in verifying otp");
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
     }
@@ -72,6 +74,7 @@ public class AuthController
         }
         catch (Exception e)
         {
+            logger.log("AuthService", "Error in login");
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getMessage());
         }
     }
@@ -85,6 +88,7 @@ public class AuthController
             String message = authService.logout(token);
             return ResponseEntity.ok(message);
         } catch (Exception e) {
+            logger.log("AuthService", "Error in logout");
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
     }

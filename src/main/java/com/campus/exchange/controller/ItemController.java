@@ -2,6 +2,7 @@ package com.campus.exchange.controller;
 
 import com.campus.exchange.model.Item;
 import com.campus.exchange.service.AuthService;
+import com.campus.exchange.service.CustomLogger;
 import com.campus.exchange.service.FileStorageService;
 import com.campus.exchange.service.ItemService;
 import org.springframework.http.ResponseEntity;
@@ -20,12 +21,14 @@ public class ItemController {
     private final ItemService itemService;
     private final FileStorageService storage;
     private final AuthService auth;
+    private final CustomLogger logger;
 
     /** constructor*/
-    public ItemController(ItemService itemService,FileStorageService storage,AuthService authService){
+    public ItemController(ItemService itemService, FileStorageService storage, AuthService authService, CustomLogger logger){
         this.itemService = itemService;
         this.storage = storage;
         this.auth = authService;
+        this.logger = logger;
     }
 
     /** This endpoint expects multipart form data because image upload is included.*/
@@ -76,6 +79,7 @@ public class ItemController {
             }
             return ResponseEntity.ok(items); // shows 200 ok on postman indicating success
         }catch (IOException e) {
+
             return ResponseEntity.status(500).body("Error reading items: " + e.getMessage());
         }catch(Exception e){
             return ResponseEntity.status(403).body("Error reading items: " + e.getMessage());

@@ -13,7 +13,6 @@ import java.util.Optional;
 
 /**
  * Repository for handling User data stored in users.json.
- *
  * Functions performed:
  * Read all users from JSON
  * Find user by ID or email

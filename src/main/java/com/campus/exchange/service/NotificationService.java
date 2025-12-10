@@ -12,6 +12,19 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+/**
+ * This service handles all in-app notifications and alerts.
+ *  Functions performed:
+ *  It generates notification messages for various events (Claim requests, Acceptances, Rejections).
+ *  It fetches User details (Name, Hostel, Email) to construct the messages to be sent.
+ *  It saves new notifications to the JSON file notifications.json.
+ *  It searches for notifications for a particular user and marks them as 'read'.
+ *  Dependencies:
+ *  It uses UserRepositoryJson to get user contact info.
+ *  It uses NotificationRepositoryJson to store the actual notifications.
+ *  It uses CustomLogger to log the functions called by controller.
+ */
+
 @Service
 public class NotificationService {
     NotificationRepositoryJson notificationJson;
@@ -66,6 +79,7 @@ public class NotificationService {
         notificationJson.addNotification(listerNotification);
         notificationJson.addNotification(claimerNotification);
     }
+
     public void notifyClaimRejected(String itemId,String listerId,String claimerId,String itemTitle) throws IOException{
         logger.log("NotificationService", "notifyClaimRejected for claimerID "+ claimerId );
         Optional<User> claimer = userJson.findById(claimerId);
@@ -79,6 +93,7 @@ public class NotificationService {
                 System.currentTimeMillis(), false);
         notificationJson.addNotification(claimerNotification);
     }
+
     public void notifyItemExpired(String itemId,String listerId, String itemTitle) throws IOException{
         logger.log("NotificationService", "notifyItemExpired for itemID " + itemId);
         Optional<User> lister = userJson.findById(listerId);
@@ -92,6 +107,7 @@ public class NotificationService {
                 System.currentTimeMillis(),false);
         notificationJson.addNotification(listerNotification);
     }
+
     public List<Notification> showAllNotification(String userId) throws IOException{
         logger.log("NotificationService", "showAllNotification called for userID " + userId);
         List<Notification> list = notificationJson.findAll();
