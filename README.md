@@ -1,6 +1,6 @@
 # Campus-Exchange🎓🛒
 
-> A P2P marketplace exclusively for the any college community.
+> A P2P marketplace exclusively for any college community.
 
 ## 🖋️ Note for Evaluator
 
@@ -9,6 +9,8 @@ This is because we were informed about the submission of this JSON file, includi
 hope that you will consider **OrangeCat.postman_collection.json** valid as it is essentially the same commands as the video.
 
 A complete description of what is happening on screen, with timestamps has been uploaded along with the video in the OneDrive link.
+
+Voiceover has been added to the video that explains what is happening in the screen.
 
 ## 📖 Overview
 
@@ -20,16 +22,17 @@ Our main motivation was to fix the idea of selling products over in WhatsApp gro
 ## ✨ Key Features
 
 - **Verified Access:** Users have to register themselves as part of the college community and select their college then register themselves and be part of the community.
-- **Login via token**: Users are given a random token upon every login visit which has a fixed duration of expiry after which (s)he has to login again.
 - **OTP Verification**: OTP verification sent over e-mail registered by the users with expiry of 2 minutes.
+- **Login via token**: Users are given a random token upon every login visit which has a fixed duration (24 hours) of expiry after which (s)he has to log in again.
 - **Item Listing**: Items can be listed by the users with price, quantity and image.
-- **Item Delisting**: Items are automatically delisted after 1 year if not sold.
-- **Blocked User**: Some uesrs can be blocked by the item lister if the deal is not successful even after them claiming the items
-- **Image Uploading:** Images can be uploaded using multi-path
+- **Image Uploading:** Images can be uploaded using HTTP multi-path request.
+- **Item Delisting**: Items are automatically delisted after 1 year (10 minutes here for demo purpose) if not sold.
 - **Filter Feature:** Items can be filtered based on the categories provided.
-- **Notification Updates:** Claimers and Listers are provided with timely notifications
-- **Claim Item**: Items listed can be claimed prior to which lister receives the notification of the claim
-- **LogFile Generation**: Every activity of the user is tracked and listed in a LogFile which can be used for security purposes.
+- **Claim Item:** Items listed can be claimed prior to which lister receives the notification of the claim.
+- **Item relisting:** Lister has an option to re-list the item (after it has been claimed) if the deal was unsuccessful. This follows blocking the user for 7 days (for that particular item).
+- **Blocked User**: Users are blocked if the deal is not successful (item is relisted) even after them claiming the items (Unable to claim the same item for 7 days).
+- **Notification Updates:** Claimer and Lister receive notifications whenever actions related to them occur.
+- **LogFile Generation**: Every activity of the backend is tracked and listed in a LogFile which can be used for debugging, tracking user activity, security purposes.
 
 ## 🔌 Endpoints Description
 
@@ -66,8 +69,13 @@ Our main motivation was to fix the idea of selling products over in WhatsApp gro
 ## 🛠️ Tech Stack
 
 - **Backend:** Spring Framework with Java
-- **Database:** JSON
-- **Authentication:** OAuth
+- **Dependencies:**
+  - spring-boot-starter-mail
+  - spring-boot-starter-web
+  - lombok
+  - spring-boot-starter-test
+- **Data Storage:** JSON (file based)
+
 
 ## 🚀 Installation & Setup
 
@@ -97,13 +105,14 @@ Our main motivation was to fix the idea of selling products over in WhatsApp gro
 - **Front End**
 - **Web Deployment**
 - **Chat Feature and Payment Gateway**
+- **Using Database for data management**
 
 ## 🤝 Contributing
 
-- Taneesh Kamleshkumar Bhojawala(BT2024053)
-- Aryan Viraj Khadgi(BT2024151)
-- Abhinav Bhatia(BT2024156)
-- Omkumar Alpeshbhai Aghera(BT2024088)
+- Taneesh Kamleshkumar Bhojawala (BT2024053)
+- Omkumar Alpeshbhai Aghera (BT2024088)
+- Aryan Viraj Khadgi (BT2024151)
+- Abhinav Bhatia (BT2024156)
 
 ## 📜 License
 
