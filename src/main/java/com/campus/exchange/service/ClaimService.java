@@ -105,6 +105,7 @@ public class ClaimService {
         }
         Claim claim1 = claimOptional.get();
         claim1.setStatus("REJECTED");
+        claimRepositoryJson.updateClaimList(claim1);
         claimRepositoryJson.deleteByID(itemID);
         Optional<Item> itemOptional = itemRepositoryJson.findById(itemID);
         if(itemOptional.isEmpty()){
