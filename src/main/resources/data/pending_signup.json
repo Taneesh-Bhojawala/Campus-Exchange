@@ -1,10 +1,1 @@
-[ {
-  "email" : "omaghera1292006@gmail.com",
-  "name" : "Test User",
-  "hashPassword" : "$2a$10$pMQxRIGwIatCDSFVE3gyGOeVUWOVET76ljAwg3vMnnQWD3exF/3tK",
-  "hostelNumber" : "Bhaskara",
-  "gender" : "Male",
-  "college" : "IIITB",
-  "otp" : "804335",
-  "expiresAt" : 1765012673357
-} ]
+[]
