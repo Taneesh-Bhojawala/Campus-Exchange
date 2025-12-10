@@ -4,6 +4,7 @@ import com.campus.exchange.dto.SignupRequest;
 import com.campus.exchange.dto.VerifyOtpRequest;
 import com.campus.exchange.model.User;
 import com.campus.exchange.service.AuthService;
+import com.campus.exchange.service.CustomLogger;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,12 +18,14 @@ import java.util.*;
 public class AuthController
 {
     private final AuthService authService;
+    private final CustomLogger logger;
 
     //constructor injection to provide the necessary beans
-    public AuthController(AuthService authService)
+    public AuthController(AuthService authService, CustomLogger logger)
     {
 
         this.authService = authService;
+        this.logger = logger;
     }
 
     /**Endpoint for creating a new signup request
