@@ -6,11 +6,7 @@ import com.campus.exchange.model.Item;
 import com.campus.exchange.repository.*;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 public class ClaimService {
@@ -80,8 +76,8 @@ public class ClaimService {
         itemService.updateStatus("PENDING",itemID);
         List<Claim> claimList = claimRepositoryJson.findAll();
         for(Claim claim2:claimList) {
-            if(claim2 == claim1) {
-                //make it accepted only for that particualr claim accpeted by the user
+            if(Objects.equals(claim2.getClaimId(), claim1.getClaimId())) {
+                //make it accepted only for that particular claim accepted by the user
                 claim2.setStatus("ACCEPTED");
                 claimRepositoryJson.updateClaimList(claim2);
             } else if(claim2.getItemId().equals(itemID)) {
