@@ -1,0 +1,3039 @@
+{
+	"info": {
+		"_postman_id": "daa962e7-5e06-4b70-b463-82ad76a59a15",
+		"name": "My Collection",
+		"description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "50090196",
+		"_collection_link": "https://theproprofessor-6277215.postman.co/workspace/Taneesh-Bhojawala's-Workspace~ad28c31b-d252-4cd1-8bd9-3b96be0335bb/collection/50090196-daa962e7-5e06-4b70-b463-82ad76a59a15?action=share&source=collection_link&creator=50090196"
+	},
+	"item": [
+		{
+			"name": "User1-Signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"taneeshbhojawala@gmail.com\",\r\n  \"password\": \"test123\",\r\n  \"name\": \"User1\",\r\n  \"hostelNumber\": \"B-786\",\r\n  \"gender\": \"Male\",\r\n  \"college\": \"IIITB\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/signup-request",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"signup-request"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "User1-Signup",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"taneeshbhojawala@gmail.com\",\r\n  \"password\": \"test123\",\r\n  \"name\": \"User1\",\r\n  \"hostelNumber\": \"B-786\",\r\n  \"gender\": \"Male\",\r\n  \"college\": \"IIITB\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/signup-request",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"signup-request"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "36"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Dec 2025 09:56:57 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "OTP sent successfully, please verify"
+				}
+			]
+		},
+		{
+			"name": "User2-Signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"omaghera1292006@gmail.com\",\r\n  \"password\": \"test123\",\r\n  \"name\": \"User2\",\r\n  \"hostelNumber\": \"B-725\",\r\n  \"gender\": \"Male\",\r\n  \"college\": \"IIITB\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/signup-request",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"signup-request"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "User2-Signup",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"omaghera1292006@gmail.com\",\r\n  \"password\": \"test123\",\r\n  \"name\": \"User2\",\r\n  \"hostelNumber\": \"B-725\",\r\n  \"gender\": \"Male\",\r\n  \"college\": \"IIITB\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/signup-request",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"signup-request"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "36"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Dec 2025 09:57:32 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "OTP sent successfully, please verify"
+				}
+			]
+		},
+		{
+			"name": "User3-Signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"aryankhadgi9@gmail.com\",\r\n  \"password\": \"test123\",\r\n  \"name\": \"User3\",\r\n  \"hostelNumber\": \"B-723\",\r\n  \"gender\": \"Male\",\r\n  \"college\": \"IIITB\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/signup-request",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"signup-request"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "User3-Signup",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"aryankhadgi9@gmail.com\",\r\n  \"password\": \"test123\",\r\n  \"name\": \"User3\",\r\n  \"hostelNumber\": \"B-723\",\r\n  \"gender\": \"Male\",\r\n  \"college\": \"IIITB\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/signup-request",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"signup-request"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "36"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Dec 2025 09:58:05 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "OTP sent successfully, please verify"
+				}
+			]
+		},
+		{
+			"name": "Otp-Verify",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"aryankhadgi9@gmail.com\",\r\n  \"otp\": \"839227\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/verify-otp",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"verify-otp"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Otp-Verify",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"taneeshbhojawala@gmail.com\",\r\n  \"otp\": \"281847 \"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/verify-otp",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"verify-otp"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "11"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Dec 2025 09:57:09 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "Invalid OTP"
+				},
+				{
+					"name": "Otp-Verify",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"taneeshbhojawala@gmail.com\",\r\n  \"otp\": \"281847\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/verify-otp",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"verify-otp"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Dec 2025 09:57:17 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"userId\": \"a200f608-292d-40dd-9513-8a79962fbc8c\",\n    \"name\": \"User1\",\n    \"email\": \"taneeshbhojawala@gmail.com\",\n    \"password\": \"$2a$10$ov8A58/ZhI6W86YP.a24.u5WZh.VhyGkZEcaCdNKayi/2e0zd7c4S\",\n    \"hostelNumber\": \"B-786\",\n    \"gender\": \"Male\",\n    \"college\": \"IIITB\",\n    \"enabled\": true\n}"
+				},
+				{
+					"name": "Otp-Verify",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"omaghera1292006@gmail.com\",\r\n  \"otp\": \"232343\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/verify-otp",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"verify-otp"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Dec 2025 09:57:50 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"userId\": \"7fb8a6bf-9a11-4f54-b34a-76817ffd8623\",\n    \"name\": \"User2\",\n    \"email\": \"omaghera1292006@gmail.com\",\n    \"password\": \"$2a$10$0tYrreV0TG2vp9zMj4MG0.kRs91/9eGyMGhjiHoD5fpqFPort00tm\",\n    \"hostelNumber\": \"B-725\",\n    \"gender\": \"Male\",\n    \"college\": \"IIITB\",\n    \"enabled\": true\n}"
+				},
+				{
+					"name": "Otp-Verify",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"aryankhadgi9@gmail.com\",\r\n  \"otp\": \"839227\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/verify-otp",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"verify-otp"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Dec 2025 09:58:22 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"userId\": \"5e963a92-abe5-47f3-b136-e6bd5166cea3\",\n    \"name\": \"User3\",\n    \"email\": \"aryankhadgi9@gmail.com\",\n    \"password\": \"$2a$10$nTPHDaoahhE2ORxfNvrCZObr8FpQM95Xv3XGmFuFREq5kZ6JCLIXa\",\n    \"hostelNumber\": \"B-723\",\n    \"gender\": \"Male\",\n    \"college\": \"IIITB\",\n    \"enabled\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/login?email=aryankhadgi9@gmail.com&password=test123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "aryankhadgi9@gmail.com"
+						},
+						{
+							"key": "password",
+							"value": "test123"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/login?email=taneeshbhojawala@gmail.com&password=test123",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "taneeshbhojawala@gmail.com"
+								},
+								{
+									"key": "password",
+									"value": "test123"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Dec 2025 09:58:47 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"userId\": \"a200f608-292d-40dd-9513-8a79962fbc8c\",\n    \"token\": \"7bdf6b76-0295-4033-998a-73a83a93adf7\"\n}"
+				},
+				{
+					"name": "Login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/login?email=omaghera1292006@gmail.com&password=test123",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "omaghera1292006@gmail.com"
+								},
+								{
+									"key": "password",
+									"value": "test123"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Dec 2025 09:59:01 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"userId\": \"7fb8a6bf-9a11-4f54-b34a-76817ffd8623\",\n    \"token\": \"ec03658d-8d53-4e86-ade7-8b8e55760f45\"\n}"
+				},
+				{
+					"name": "Login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/login?email=aryankhadgi9@gmail.com&password=test123",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "aryankhadgi9@gmail.com"
+								},
+								{
+									"key": "password",
+									"value": "test123"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Dec 2025 09:59:27 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"userId\": \"5e963a92-abe5-47f3-b136-e6bd5166cea3\",\n    \"token\": \"0d5cd5ce-ee83-45da-92c8-9e0fd1124157\"\n}"
+				}
+			]
+		},
+		{
+			"name": "List-Item1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Auth-Token",
+						"value": "7bdf6b76-0295-4033-998a-73a83a93adf7",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "college",
+							"value": "IIITB",
+							"type": "text"
+						},
+						{
+							"key": "quantity",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "Chair",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Good condition",
+							"type": "text"
+						},
+						{
+							"key": "category",
+							"value": "Household",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "1000",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/C:/Users/tanee/Downloads/project_imgs/chair1.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "List-Item1",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Auth-Token",
+								"value": "7bdf6b76-0295-4033-998a-73a83a93adf7",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "college",
+									"value": "IIITB",
+									"type": "text"
+								},
+								{
+									"key": "quantity",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "Chair",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Good condition",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "Household",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "1000",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/tanee/Downloads/project_imgs/chair1.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/items",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"items"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Dec 2025 10:00:21 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"itemId\": \"eeebdeb2-b077-4a46-8aff-342ba5fe5408\",\n    \"listerId\": \"a200f608-292d-40dd-9513-8a79962fbc8c\",\n    \"college\": \"IIITB\",\n    \"quantity\": 1,\n    \"title\": \"Chair\",\n    \"description\": \"Good condition\",\n    \"category\": \"Household\",\n    \"price\": 1000,\n    \"imagePath\": \"/uploads/ec284eac-ec11-4d65-aa23-166e9a7a78a2.jpg\",\n    \"status\": \"LISTED\",\n    \"createdAt\": 1765360821504\n}"
+				}
+			]
+		},
+		{
+			"name": "List-Item-2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Auth-Token",
+						"value": "7bdf6b76-0295-4033-998a-73a83a93adf7",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "college",
+							"value": "IIITB",
+							"type": "text"
+						},
+						{
+							"key": "quantity",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "CLRS book",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Good condition",
+							"type": "text"
+						},
+						{
+							"key": "category",
+							"value": "Book",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "10000",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/C:/Users/tanee/Downloads/project_imgs/book1.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "List-Item-2",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Auth-Token",
+								"value": "7bdf6b76-0295-4033-998a-73a83a93adf7",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "college",
+									"value": "IIITB",
+									"type": "text"
+								},
+								{
+									"key": "quantity",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "CLRS book",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Good condition",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "Book",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "10000",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/tanee/Downloads/project_imgs/book1.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/items",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"items"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Dec 2025 10:00:51 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"itemId\": \"ccf439a0-dbcd-42c5-830c-f9e1f82af493\",\n    \"listerId\": \"a200f608-292d-40dd-9513-8a79962fbc8c\",\n    \"college\": \"IIITB\",\n    \"quantity\": 2,\n    \"title\": \"CLRS book\",\n    \"description\": \"Good condition\",\n    \"category\": \"Book\",\n    \"price\": 10000,\n    \"imagePath\": \"/uploads/42fdca1c-1222-4b3f-bb0c-2c3b9a023b7a.jpg\",\n    \"status\": \"LISTED\",\n    \"createdAt\": 1765360851434\n}"
+				}
+			]
+		},
+		{
+			"name": "Get-my-Listed-Items",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Auth-Token",
+						"value": "7bdf6b76-0295-4033-998a-73a83a93adf7",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/items/listed",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"items",
+						"listed"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get-my-Listed-Items",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Auth-Token",
+								"value": "7bdf6b76-0295-4033-998a-73a83a93adf7",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/items/listed",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"items",
+								"listed"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Dec 2025 10:01:49 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"itemId\": \"eeebdeb2-b077-4a46-8aff-342ba5fe5408\",\n        \"listerId\": \"a200f608-292d-40dd-9513-8a79962fbc8c\",\n        \"college\": \"IIITB\",\n        \"quantity\": 1,\n        \"title\": \"Chair\",\n        \"description\": \"Good condition\",\n        \"category\": \"Household\",\n        \"price\": 1000,\n        \"imagePath\": \"/uploads/ec284eac-ec11-4d65-aa23-166e9a7a78a2.jpg\",\n        \"status\": \"LISTED\",\n        \"createdAt\": 1765360821504\n    },\n    {\n        \"itemId\": \"ccf439a0-dbcd-42c5-830c-f9e1f82af493\",\n        \"listerId\": \"a200f608-292d-40dd-9513-8a79962fbc8c\",\n        \"college\": \"IIITB\",\n        \"quantity\": 2,\n        \"title\": \"CLRS book\",\n        \"description\": \"Good condition\",\n        \"category\": \"Book\",\n        \"price\": 10000,\n        \"imagePath\": \"/uploads/42fdca1c-1222-4b3f-bb0c-2c3b9a023b7a.jpg\",\n        \"status\": \"LISTED\",\n        \"createdAt\": 1765360851434\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get-Listed-Items-by-college",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/items?college=IIITB",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"items"
+					],
+					"query": [
+						{
+							"key": "college",
+							"value": "IIITB"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get-Listed-Items-by-college",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/items?college=IIITB",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"items"
+							],
+							"query": [
+								{
+									"key": "college",
+									"value": "IIITB"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Dec 2025 10:02:09 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"itemId\": \"eeebdeb2-b077-4a46-8aff-342ba5fe5408\",\n        \"listerId\": \"a200f608-292d-40dd-9513-8a79962fbc8c\",\n        \"college\": \"IIITB\",\n        \"quantity\": 1,\n        \"title\": \"Chair\",\n        \"description\": \"Good condition\",\n        \"category\": \"Household\",\n        \"price\": 1000,\n        \"imagePath\": \"/uploads/ec284eac-ec11-4d65-aa23-166e9a7a78a2.jpg\",\n        \"status\": \"LISTED\",\n        \"createdAt\": 1765360821504\n    },\n    {\n        \"itemId\": \"ccf439a0-dbcd-42c5-830c-f9e1f82af493\",\n        \"listerId\": \"a200f608-292d-40dd-9513-8a79962fbc8c\",\n        \"college\": \"IIITB\",\n        \"quantity\": 2,\n        \"title\": \"CLRS book\",\n        \"description\": \"Good condition\",\n        \"category\": \"Book\",\n        \"price\": 10000,\n        \"imagePath\": \"/uploads/42fdca1c-1222-4b3f-bb0c-2c3b9a023b7a.jpg\",\n        \"status\": \"LISTED\",\n        \"createdAt\": 1765360851434\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get-filtered-items",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/items?category=Book&college=IIITB",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"items"
+					],
+					"query": [
+						{
+							"key": "category",
+							"value": "Book"
+						},
+						{
+							"key": "college",
+							"value": "IIITB"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get-filtered-items",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/items?category=Book&college=IIITB",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"items"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "Book"
+								},
+								{
+									"key": "college",
+									"value": "IIITB"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Dec 2025 10:02:27 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"itemId\": \"ccf439a0-dbcd-42c5-830c-f9e1f82af493\",\n        \"listerId\": \"a200f608-292d-40dd-9513-8a79962fbc8c\",\n        \"college\": \"IIITB\",\n        \"quantity\": 2,\n        \"title\": \"CLRS book\",\n        \"description\": \"Good condition\",\n        \"category\": \"Book\",\n        \"price\": 10000,\n        \"imagePath\": \"/uploads/42fdca1c-1222-4b3f-bb0c-2c3b9a023b7a.jpg\",\n        \"status\": \"LISTED\",\n        \"createdAt\": 1765360851434\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Claim-Request",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Auth-Token",
+						"value": "0d5cd5ce-ee83-45da-92c8-9e0fd1124157",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"itemId\": \"eeebdeb2-b077-4a46-8aff-342ba5fe5408\",\r\n  \"claimerId\": \"5e963a92-abe5-47f3-b136-e6bd5166cea3\",\r\n  \"listerId\": \"a200f608-292d-40dd-9513-8a79962fbc8c\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/claims",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"claims"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Claim-Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Auth-Token",
+								"value": "ec03658d-8d53-4e86-ade7-8b8e55760f45",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"itemId\": \"eeebdeb2-b077-4a46-8aff-342ba5fe5408\",\r\n  \"claimerId\": \"7fb8a6bf-9a11-4f54-b34a-76817ffd8623\",\r\n  \"listerId\": \"a200f608-292d-40dd-9513-8a79962fbc8c\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/claims",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"claims"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Dec 2025 10:03:47 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"claimId\": \"50d217f2-7cbd-4d4e-8063-61ad974cd546\",\n    \"itemId\": \"eeebdeb2-b077-4a46-8aff-342ba5fe5408\",\n    \"claimerId\": \"7fb8a6bf-9a11-4f54-b34a-76817ffd8623\",\n    \"listerId\": \"a200f608-292d-40dd-9513-8a79962fbc8c\",\n    \"status\": \"WAITING\",\n    \"createdAt\": 1765361027636\n}"
+				},
+				{
+					"name": "Claim-Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Auth-Token",
+								"value": "ec03658d-8d53-4e86-ade7-8b8e55760f45",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"itemId\": \"ccf439a0-dbcd-42c5-830c-f9e1f82af493\",\r\n  \"claimerId\": \"7fb8a6bf-9a11-4f54-b34a-76817ffd8623\",\r\n  \"listerId\": \"a200f608-292d-40dd-9513-8a79962fbc8c\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/claims",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"claims"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Dec 2025 10:04:15 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"claimId\": \"c0c91397-a3b8-489a-8dfd-ec25b8e78d31\",\n    \"itemId\": \"ccf439a0-dbcd-42c5-830c-f9e1f82af493\",\n    \"claimerId\": \"7fb8a6bf-9a11-4f54-b34a-76817ffd8623\",\n    \"listerId\": \"a200f608-292d-40dd-9513-8a79962fbc8c\",\n    \"status\": \"WAITING\",\n    \"createdAt\": 1765361055765\n}"
+				},
+				{
+					"name": "Claim-Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Auth-Token",
+								"value": "0d5cd5ce-ee83-45da-92c8-9e0fd1124157",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"itemId\": \"ccf439a0-dbcd-42c5-830c-f9e1f82af493\",\r\n  \"claimerId\": \"5e963a92-abe5-47f3-b136-e6bd5166cea3\",\r\n  \"listerId\": \"a200f608-292d-40dd-9513-8a79962fbc8c\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/claims",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"claims"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Dec 2025 10:04:58 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"claimId\": \"8c99f750-cb1f-4cd1-8656-64f70cf69f48\",\n    \"itemId\": \"ccf439a0-dbcd-42c5-830c-f9e1f82af493\",\n    \"claimerId\": \"5e963a92-abe5-47f3-b136-e6bd5166cea3\",\n    \"listerId\": \"a200f608-292d-40dd-9513-8a79962fbc8c\",\n    \"status\": \"WAITING\",\n    \"createdAt\": 1765361098405\n}"
+				},
+				{
+					"name": "Claim-Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Auth-Token",
+								"value": "0d5cd5ce-ee83-45da-92c8-9e0fd1124157",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"itemId\": \"eeebdeb2-b077-4a46-8aff-342ba5fe5408\",\r\n  \"claimerId\": \"5e963a92-abe5-47f3-b136-e6bd5166cea3\",\r\n  \"listerId\": \"a200f608-292d-40dd-9513-8a79962fbc8c\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/claims",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"claims"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Dec 2025 10:05:19 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"claimId\": \"fd989858-2319-40a5-b414-33aece4d997d\",\n    \"itemId\": \"eeebdeb2-b077-4a46-8aff-342ba5fe5408\",\n    \"claimerId\": \"5e963a92-abe5-47f3-b136-e6bd5166cea3\",\n    \"listerId\": \"a200f608-292d-40dd-9513-8a79962fbc8c\",\n    \"status\": \"WAITING\",\n    \"createdAt\": 1765361119124\n}"
+				}
+			]
+		},
+		{
+			"name": "Get-Notifications-by-User",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Auth-Token",
+						"value": "ec03658d-8d53-4e86-ade7-8b8e55760f45",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/notifications/7fb8a6bf-9a11-4f54-b34a-76817ffd8623",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"notifications",
+						"7fb8a6bf-9a11-4f54-b34a-76817ffd8623"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get-Notifications-by-User",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Auth-Token",
+								"value": "7bdf6b76-0295-4033-998a-73a83a93adf7",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/notifications/a200f608-292d-40dd-9513-8a79962fbc8c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"notifications",
+								"a200f608-292d-40dd-9513-8a79962fbc8c"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Dec 2025 10:06:35 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"8e75ed36-0310-4957-8053-5e4cdc704f35\",\n        \"type\": \"CLAIM_CREATED\",\n        \"title\": \"NEW CLAIM REQUEST\",\n        \"message\": \"User2 has requested to claim your itemChair.\",\n        \"timestamp\": 1765361027645,\n        \"read\": false,\n        \"userId\": \"a200f608-292d-40dd-9513-8a79962fbc8c\"\n    },\n    {\n        \"id\": \"3359a83f-cdc4-4139-a947-0af2109928b4\",\n        \"type\": \"CLAIM_CREATED\",\n        \"title\": \"NEW CLAIM REQUEST\",\n        \"message\": \"User2 has requested to claim your itemCLRS book.\",\n        \"timestamp\": 1765361055772,\n        \"read\": false,\n        \"userId\": \"a200f608-292d-40dd-9513-8a79962fbc8c\"\n    },\n    {\n        \"id\": \"fd7e0645-ba61-4bf6-8c62-2e216a15012f\",\n        \"type\": \"CLAIM_CREATED\",\n        \"title\": \"NEW CLAIM REQUEST\",\n        \"message\": \"User3 has requested to claim your itemCLRS book.\",\n        \"timestamp\": 1765361098412,\n        \"read\": false,\n        \"userId\": \"a200f608-292d-40dd-9513-8a79962fbc8c\"\n    },\n    {\n        \"id\": \"d637eddf-5144-4d5d-9663-eaabe5f2154c\",\n        \"type\": \"CLAIM_CREATED\",\n        \"title\": \"NEW CLAIM REQUEST\",\n        \"message\": \"User3 has requested to claim your itemChair.\",\n        \"timestamp\": 1765361119130,\n        \"read\": false,\n        \"userId\": \"a200f608-292d-40dd-9513-8a79962fbc8c\"\n    }\n]"
+				},
+				{
+					"name": "Get-Notifications-by-User",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Auth-Token",
+								"value": "ec03658d-8d53-4e86-ade7-8b8e55760f45",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/notifications/7fb8a6bf-9a11-4f54-b34a-76817ffd8623",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"notifications",
+								"7fb8a6bf-9a11-4f54-b34a-76817ffd8623"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Dec 2025 10:11:49 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"002d1076-7a17-47a3-abee-3550375e97d8\",\n        \"type\": \"CLAIM_CREATED\",\n        \"title\": \"CLAIM SUBMITTED\",\n        \"message\": \"Your claim request for Chair has been submitted.\",\n        \"timestamp\": 1765361027645,\n        \"read\": false,\n        \"userId\": \"7fb8a6bf-9a11-4f54-b34a-76817ffd8623\"\n    },\n    {\n        \"id\": \"6da42ad7-d080-48ce-b01d-2b6db149b333\",\n        \"type\": \"CLAIM_CREATED\",\n        \"title\": \"CLAIM SUBMITTED\",\n        \"message\": \"Your claim request for CLRS book has been submitted.\",\n        \"timestamp\": 1765361055772,\n        \"read\": false,\n        \"userId\": \"7fb8a6bf-9a11-4f54-b34a-76817ffd8623\"\n    },\n    {\n        \"id\": \"5bb05868-fc32-4cfc-af55-02d5f8cbb8be\",\n        \"type\": \"CLAIM_ACCEPTED\",\n        \"title\": \"Claim Accepted!\",\n        \"message\": \"Good news! Your claim on Chair has been accepted.\\nYou may now contact the owner at: taneeshbhojawala@gmail.com to coordinate pickup.\\nTheir hostel number: B-786 .\\n\",\n        \"timestamp\": 1765361275930,\n        \"read\": false,\n        \"userId\": \"7fb8a6bf-9a11-4f54-b34a-76817ffd8623\"\n    }\n]"
+				},
+				{
+					"name": "Get-Notifications-by-User",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Auth-Token",
+								"value": "ec03658d-8d53-4e86-ade7-8b8e55760f45",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/notifications/7fb8a6bf-9a11-4f54-b34a-76817ffd8623",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"notifications",
+								"7fb8a6bf-9a11-4f54-b34a-76817ffd8623"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Dec 2025 10:15:28 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"002d1076-7a17-47a3-abee-3550375e97d8\",\n        \"type\": \"CLAIM_CREATED\",\n        \"title\": \"CLAIM SUBMITTED\",\n        \"message\": \"Your claim request for Chair has been submitted.\",\n        \"timestamp\": 1765361027645,\n        \"read\": true,\n        \"userId\": \"7fb8a6bf-9a11-4f54-b34a-76817ffd8623\"\n    },\n    {\n        \"id\": \"6da42ad7-d080-48ce-b01d-2b6db149b333\",\n        \"type\": \"CLAIM_CREATED\",\n        \"title\": \"CLAIM SUBMITTED\",\n        \"message\": \"Your claim request for CLRS book has been submitted.\",\n        \"timestamp\": 1765361055772,\n        \"read\": true,\n        \"userId\": \"7fb8a6bf-9a11-4f54-b34a-76817ffd8623\"\n    },\n    {\n        \"id\": \"5bb05868-fc32-4cfc-af55-02d5f8cbb8be\",\n        \"type\": \"CLAIM_ACCEPTED\",\n        \"title\": \"Claim Accepted!\",\n        \"message\": \"Good news! Your claim on Chair has been accepted.\\nYou may now contact the owner at: taneeshbhojawala@gmail.com to coordinate pickup.\\nTheir hostel number: B-786 .\\n\",\n        \"timestamp\": 1765361275930,\n        \"read\": true,\n        \"userId\": \"7fb8a6bf-9a11-4f54-b34a-76817ffd8623\"\n    },\n    {\n        \"id\": \"68444934-aee7-405e-9e1b-cf7f54c35fa2\",\n        \"type\": \"CLAIM_REJECTED\",\n        \"title\": \"Claim Rejected\",\n        \"message\": \"Your claim for CLRS book was not accepted.\\nYou may still explore other available listings.\",\n        \"timestamp\": 1765361673999,\n        \"read\": false,\n        \"userId\": \"7fb8a6bf-9a11-4f54-b34a-76817ffd8623\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Accept-Claim",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Auth-Token",
+						"value": "7bdf6b76-0295-4033-998a-73a83a93adf7",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"claimId\": \"8c99f750-cb1f-4cd1-8656-64f70cf69f48\",\r\n    \"itemId\": \"ccf439a0-dbcd-42c5-830c-f9e1f82af493\",\r\n    \"claimerId\": \"5e963a92-abe5-47f3-b136-e6bd5166cea3\",\r\n    \"listerId\": \"a200f608-292d-40dd-9513-8a79962fbc8c\",\r\n    \"status\": \"WAITING\",\r\n    \"createdAt\": 1765361098405\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/claims/accept",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"claims",
+						"accept"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Accept-Claim",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Auth-Token",
+								"value": "7bdf6b76-0295-4033-998a-73a83a93adf7",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"claimId\": \"50d217f2-7cbd-4d4e-8063-61ad974cd546\",\r\n    \"itemId\": \"eeebdeb2-b077-4a46-8aff-342ba5fe5408\",\r\n    \"claimerId\": \"7fb8a6bf-9a11-4f54-b34a-76817ffd8623\",\r\n    \"listerId\": \"a200f608-292d-40dd-9513-8a79962fbc8c\",\r\n    \"status\": \"WAITING\",\r\n    \"createdAt\": 1765361027636\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/claims/accept",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"claims",
+								"accept"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Dec 2025 10:07:55 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"claimId\": \"50d217f2-7cbd-4d4e-8063-61ad974cd546\",\n    \"itemId\": \"eeebdeb2-b077-4a46-8aff-342ba5fe5408\",\n    \"claimerId\": \"7fb8a6bf-9a11-4f54-b34a-76817ffd8623\",\n    \"listerId\": \"a200f608-292d-40dd-9513-8a79962fbc8c\",\n    \"status\": \"ACCEPTED\",\n    \"createdAt\": 1765361027636\n}"
+				},
+				{
+					"name": "Accept-Claim",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Auth-Token",
+								"value": "7bdf6b76-0295-4033-998a-73a83a93adf7",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"claimId\": \"8c99f750-cb1f-4cd1-8656-64f70cf69f48\",\r\n    \"itemId\": \"ccf439a0-dbcd-42c5-830c-f9e1f82af493\",\r\n    \"claimerId\": \"5e963a92-abe5-47f3-b136-e6bd5166cea3\",\r\n    \"listerId\": \"a200f608-292d-40dd-9513-8a79962fbc8c\",\r\n    \"status\": \"WAITING\",\r\n    \"createdAt\": 1765361098405\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/claims/accept",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"claims",
+								"accept"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Dec 2025 10:17:29 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"claimId\": \"c0c91397-a3b8-489a-8dfd-ec25b8e78d31\",\n    \"itemId\": \"ccf439a0-dbcd-42c5-830c-f9e1f82af493\",\n    \"claimerId\": \"7fb8a6bf-9a11-4f54-b34a-76817ffd8623\",\n    \"listerId\": \"a200f608-292d-40dd-9513-8a79962fbc8c\",\n    \"status\": \"ACCEPTED\",\n    \"createdAt\": 1765361055765\n}"
+				}
+			]
+		},
+		{
+			"name": "Complete-Deal",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/claims/item/eeebdeb2-b077-4a46-8aff-342ba5fe5408/complete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"claims",
+						"item",
+						"eeebdeb2-b077-4a46-8aff-342ba5fe5408",
+						"complete"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Complete-Deal",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/claims/item/eeebdeb2-b077-4a46-8aff-342ba5fe5408/complete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"claims",
+								"item",
+								"eeebdeb2-b077-4a46-8aff-342ba5fe5408",
+								"complete"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "25"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Dec 2025 10:12:48 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "Item marked as completed."
+				}
+			]
+		},
+		{
+			"name": "Reject-Claims",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Auth-Token",
+						"value": "7bdf6b76-0295-4033-998a-73a83a93adf7",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"claimId\": \"c0c91397-a3b8-489a-8dfd-ec25b8e78d31\",\r\n    \"itemId\": \"ccf439a0-dbcd-42c5-830c-f9e1f82af493\",\r\n    \"claimerId\": \"7fb8a6bf-9a11-4f54-b34a-76817ffd8623\",\r\n    \"listerId\": \"a200f608-292d-40dd-9513-8a79962fbc8c\",\r\n    \"status\": \"WAITING\",\r\n    \"createdAt\": 1765361055765\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/claims/reject",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"claims",
+						"reject"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Reject-Claims",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Auth-Token",
+								"value": "7bdf6b76-0295-4033-998a-73a83a93adf7",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"claimId\": \"c0c91397-a3b8-489a-8dfd-ec25b8e78d31\",\r\n    \"itemId\": \"ccf439a0-dbcd-42c5-830c-f9e1f82af493\",\r\n    \"claimerId\": \"7fb8a6bf-9a11-4f54-b34a-76817ffd8623\",\r\n    \"listerId\": \"a200f608-292d-40dd-9513-8a79962fbc8c\",\r\n    \"status\": \"WAITING\",\r\n    \"createdAt\": 1765361055765\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/claims/reject",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"claims",
+								"reject"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Dec 2025 10:14:34 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"claimId\": \"c0c91397-a3b8-489a-8dfd-ec25b8e78d31\",\n    \"itemId\": \"ccf439a0-dbcd-42c5-830c-f9e1f82af493\",\n    \"claimerId\": \"7fb8a6bf-9a11-4f54-b34a-76817ffd8623\",\n    \"listerId\": \"a200f608-292d-40dd-9513-8a79962fbc8c\",\n    \"status\": \"REJECTED\",\n    \"createdAt\": 1765361055765\n}"
+				}
+			]
+		},
+		{
+			"name": "Relist-Item",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"claimId\": \"8c99f750-cb1f-4cd1-8656-64f70cf69f48\",\r\n    \"itemId\": \"ccf439a0-dbcd-42c5-830c-f9e1f82af493\",\r\n    \"claimerId\": \"5e963a92-abe5-47f3-b136-e6bd5166cea3\",\r\n    \"listerId\": \"a200f608-292d-40dd-9513-8a79962fbc8c\",\r\n    \"status\": \"WAITING\",\r\n    \"createdAt\": 1765361098405\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/claims/relist",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"claims",
+						"relist"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Relist-Item",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"claimId\": \"8c99f750-cb1f-4cd1-8656-64f70cf69f48\",\r\n    \"itemId\": \"ccf439a0-dbcd-42c5-830c-f9e1f82af493\",\r\n    \"claimerId\": \"5e963a92-abe5-47f3-b136-e6bd5166cea3\",\r\n    \"listerId\": \"a200f608-292d-40dd-9513-8a79962fbc8c\",\r\n    \"status\": \"WAITING\",\r\n    \"createdAt\": 1765361098405\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/claims/relist",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"claims",
+								"relist"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "34"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Dec 2025 10:18:30 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "Item relisted and claimer blocked."
+				}
+			]
+		},
+		{
+			"name": "Logout-User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Auth-Token",
+						"value": "7bdf6b76-0295-4033-998a-73a83a93adf7",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/logout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"logout"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Logout-User",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Auth-Token",
+								"value": "7bdf6b76-0295-4033-998a-73a83a93adf7",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "24"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Dec 2025 10:19:36 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "Logged out successfully."
+				}
+			]
+		}
+	]
+}

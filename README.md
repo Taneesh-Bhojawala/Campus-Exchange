@@ -2,7 +2,13 @@
 
 > A P2P marketplace exclusively for the any college community.
 
-![Project Status](https://img.shields.io/badge/Status-Done-darkgreen) ![License](https://img.shields.io/badge/License-MIT-blue)
+## 🖋️ Note for Evaluator
+
+The **OrangeCat.postman_collection.json** **does not contain the exact responses as per the video.** It contains the all the exact commands as in the video but were done on a different day so the all the UUIDs and Date and Time will differ.
+This is because we were informed about the submission of this JSON file, including responses, quite late. It was not possible for any of our team members to re-record the video and the voiceover and make the necessary changes. We sincerely 
+hope that you will consider **OrangeCat.postman_collection.json** valid as it is essentially the same commands as the video.
+
+A complete description of what is happening on screen, with timestamps has been uploaded along with the video in the OneDrive link.
 
 ## 📖 Overview
 
@@ -13,7 +19,7 @@ Our main motivation was to fix the idea of selling products over in WhatsApp gro
 
 ## ✨ Key Features
 
-- **Verified Access:** Users have to register themselves as part of the college community and select their college then register themselves andbe part of the community.
+- **Verified Access:** Users have to register themselves as part of the college community and select their college then register themselves and be part of the community.
 - **Login via token**: Users are given a random token upon every login visit which has a fixed duration of expiry after which (s)he has to login again.
 - **OTP Verification**: OTP verification sent over e-mail registered by the users with expiry of 2 minutes.
 - **Item Listing**: Items can be listed by the users with price, quantity and image.
@@ -59,7 +65,7 @@ Our main motivation was to fix the idea of selling products over in WhatsApp gro
 
 ## 🛠️ Tech Stack
 
-- **Backend:** Spring Framework
+- **Backend:** Spring Framework with Java
 - **Database:** JSON
 - **Authentication:** OAuth
 
@@ -68,8 +74,8 @@ Our main motivation was to fix the idea of selling products over in WhatsApp gro
 1.  **Clone the repository**
 
     ```bash
-    cd java-app
     git clone https://github.com/Taneesh-Bhojawala/Java-Project-SEM-3.git
+    cd Java-Project-SEM-3
     ```
 2. **Check if Java is installed:**
     ```bash
@@ -79,7 +85,9 @@ Our main motivation was to fix the idea of selling products over in WhatsApp gro
     ```bash
     winget install -e --id Oracle.JDK.25
     ```
-2.  **Run the Application**
+4. **Copy the App.jar file to another directory outside the Java-Project-SEM-3 directory**
+5. Open terminal in the directory containing App.jar file.
+6. **Run the Application**
     ```bash
     java -jar App.jar
     ```
@@ -92,13 +100,11 @@ Our main motivation was to fix the idea of selling products over in WhatsApp gro
 
 ## 🤝 Contributing
 
-- Taneesh Bhojawala(BT2024053)
+- Taneesh Kamleshkumar Bhojawala(BT2024053)
 - Aryan Khadgi(BT2024151)
 - Abhinav Bhatia(BT2024156)
 - Omkumar Alpeshbhai Aghera(BT2024088)
 
 ## 📜 License
-
-idhar licaense dalna padega
 
 Distributed under the MIT License. See `LICENSE` for more information.
