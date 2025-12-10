@@ -10,7 +10,7 @@ hope that you will consider **OrangeCat.postman_collection.json** valid as it is
 
 A complete description of what is happening on screen, with timestamps has been uploaded along with the video in the OneDrive link.
 
-Voiceover has been added to the video that explains what is happening in the screen.
+Voiceover has been added to the video that explains what is happening on the screen.
 
 ## 📖 Overview
 
