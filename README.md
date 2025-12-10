@@ -101,7 +101,7 @@ Our main motivation was to fix the idea of selling products over in WhatsApp gro
 ## 🤝 Contributing
 
 - Taneesh Kamleshkumar Bhojawala(BT2024053)
-- Aryan Khadgi(BT2024151)
+- Aryan Viraj Khadgi(BT2024151)
 - Abhinav Bhatia(BT2024156)
 - Omkumar Alpeshbhai Aghera(BT2024088)
 
