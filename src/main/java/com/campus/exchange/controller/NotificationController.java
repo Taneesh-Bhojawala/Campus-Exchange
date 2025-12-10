@@ -2,6 +2,7 @@ package com.campus.exchange.controller;
 
 import com.campus.exchange.model.Notification;
 import com.campus.exchange.service.AuthService;
+import com.campus.exchange.service.CustomLogger;
 import com.campus.exchange.service.NotificationService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,11 +15,13 @@ public class NotificationController {
 
     private final NotificationService notificationService;
     private final AuthService authService;
+    private final CustomLogger logger;
 
     // Constructor-based dependency injection including AuthService
-    public NotificationController(NotificationService notificationService, AuthService authService) {
+    public NotificationController(NotificationService notificationService, AuthService authService, CustomLogger logger) {
         this.notificationService = notificationService;
         this.authService = authService;
+        this.logger = logger;
     }
 
     @GetMapping("/{userId}")
@@ -26,20 +29,21 @@ public class NotificationController {
             @PathVariable String userId,
             @RequestHeader("Auth-Token") String token) {
         try {
-            // 2. Verify Session via AuthService
+            // This verifies Session via AuthService
             // This will throw an Exception if the token is invalid or expired.
             String loggedInUserId = authService.verifySession(token);
 
-            // 3. Authorization Check: Ensure user can only view their own notifications
+            // Ensure user can only view their own notifications
             if (!loggedInUserId.equals(userId)) {
                 return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Access Denied: You can only view your own notifications.");
             }
 
-            // 4. Fetch Notifications
+            // fetches notifications
             List<Notification> notifications = notificationService.showAllNotification(userId);
             return ResponseEntity.ok(notifications);
 
         } catch (Exception e) {
+            logger.log("AuthService", "Error in showing notifications");
             // Handle Auth errors (thrown by AuthService)
             String msg = e.getMessage();
             if (msg != null && (msg.contains("Session") || msg.contains("token") || msg.contains("Invalid"))) {
