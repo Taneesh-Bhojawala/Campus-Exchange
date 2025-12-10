@@ -2,8 +2,6 @@
 
 > A P2P marketplace exclusively for the any college community.
 
-![Project Status](https://img.shields.io/badge/Status-Done-darkgreen) ![License](https://img.shields.io/badge/License-MIT-blue)
-
 ## 📖 Overview
 
 Campus-Exchange is hyperlocal marketplace exclusively for students in a college community.
