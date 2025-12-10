@@ -30,7 +30,7 @@ Our main motivation was to fix the idea of selling products over in WhatsApp gro
 - **Filter Feature:** Items can be filtered based on the categories provided.
 - **Claim Item:** Items listed can be claimed prior to which lister receives the notification of the claim.
 - **Item relisting:** Lister has an option to re-list the item (after it has been claimed) if the deal was unsuccessful. This is followed by blocking the user for 7 days (for that particular item).
-- **Blocked User**: Users are blocked if the deal is not successful (item is relisted) even after them claiming the items (Unable to claim the same item for 7 days).
+- **Blocked User**: Users are blocked if the deal is not successful (item is relisted) even after them claiming the item (Unable to claim the same item for 7 days).
 - **Notification Updates:** Claimer and Lister receive notifications whenever actions related to them occur.
 - **LogFile Generation**: Every activity of the backend is tracked and listed in a LogFile which can be used for debugging, tracking user activity, security purposes.
 
