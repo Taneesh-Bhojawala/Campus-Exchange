@@ -72,7 +72,7 @@ public class NotificationService {
                 System.currentTimeMillis(),false);
         String messageToClaimer = "Good news! Your claim on " + itemTitle + " has been accepted.\n" +
                 "You may now contact the owner at: " + lister.get().getEmail() + " to coordinate pickup.\n" +
-                "Their hostel number: " + claimer.get().getHostelNumber() + " .\n";
+                "Their hostel number: " + lister.get().getHostelNumber() + " .\n";
         Notification claimerNotification = new Notification(UUID.randomUUID().toString(),claimerId,"CLAIM_ACCEPTED",
                 "Claim Accepted!",messageToClaimer,
                 System.currentTimeMillis(), false);
