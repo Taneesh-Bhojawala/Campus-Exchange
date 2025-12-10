@@ -44,7 +44,7 @@ Our main motivation was to fix the idea of selling products over in WhatsApp gro
 | `POST` | `/api/auth/login` | **Login**: Authenticates user via email/password and returns session data. |
 | `POST` | `/api/auth/logout` | **Logout**: Invalidates the current session token. |
 
-### 📦 Item Controller
+### 📦 Item Controller (Requires active session token)
 | Method | Endpoint | Description |
 | :--- | :--- | :--- |
 | `POST` | `/api/items` | **Create Item**: Uploads an image and details to list a new item (Multipart request). |
@@ -52,7 +52,7 @@ Our main motivation was to fix the idea of selling products over in WhatsApp gro
 | `GET` | `/api/items/{id}` | **Get Item by ID**: Retrieves detailed information for a specific item. |
 | `GET` | `/api/items/listed` | **Get Listed Items**: Displays all items currently listed by the logged-in user. |
 
-### 🤝 Claim Controller
+### 🤝 Claim Controller (Requires active session token)
 | Method | Endpoint | Description |
 | :--- | :--- | :--- |
 | `POST` | `/api/claims` | **Create Claim**: Allows a buyer to claim an item using the `ClaimRequest` body. |
@@ -61,10 +61,10 @@ Our main motivation was to fix the idea of selling products over in WhatsApp gro
 | `PUT` | `/api/claims/relist` | **Relist Item**: Puts an item back on the market after a failed deal and blocks the claimer. |
 | `PUT` | `/api/claims/item/{id}/complete`| **Complete Deal**: Marks a transaction as successfully completed. |
 
-### 🔔 Notification Controller
-| Method | Endpoint | Description |
-| :--- | :--- | :--- |
-| `GET` | `/api/notifications/{userId}` | **Get Notifications**: Retrieves alerts for a specific user after verifying their session. |
+### 🔔 Notification Controller (Requires active session token)
+| Method | Endpoint | Description                                                  |
+| :--- | :--- |:-------------------------------------------------------------|
+| `GET` | `/api/notifications/{userId}` | **Get Notifications**: Retrieves alerts for a specific user. |
 
 ## 🛠️ Tech Stack
 
