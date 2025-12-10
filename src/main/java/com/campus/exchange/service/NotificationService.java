@@ -12,6 +12,19 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+/**
+ * This service handles all in-app notifications and alerts.
+ *  Functions performed:
+ *  It generates notification messages for various events (Claim requests, Acceptances, Rejections).
+ *  It fetches User details (Name, Hostel, Email) to construct the messages to be sent.
+ *  It saves new notifications to the JSON file notifications.json.
+ *  It retrieves notifications for a specific user and marks them as 'read'.
+ * * Dependencies:
+ * - Uses UserRepositoryJson to look up user contact info.
+ * - Uses NotificationRepositoryJson to store the actual alerts.
+ * - Uses CustomLogger to track notification flow.
+ */
+
 @Service
 public class NotificationService {
     NotificationRepositoryJson notificationJson;

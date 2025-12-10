@@ -12,7 +12,6 @@ import java.util.List;
 
 /**
  * Repository for handling Notification data stored in notifications.json.
- *
  * Functions performed:
  * Read all notifications from JSON
  * Find all notifications of a particular user using userId
