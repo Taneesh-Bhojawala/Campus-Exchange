@@ -2,16 +2,6 @@
 
 > A P2P marketplace exclusively for any college community.
 
-## 🖋️ Note for Evaluator
-
-The **OrangeCat.postman_collection.json** **does not contain the exact responses as per the video.** It contains the all the exact commands as in the video but were done on a different day so the all the UUIDs and Date and Time will differ.
-This is because we were informed about the submission of this JSON file, including responses, quite late. It was not possible for any of our team members to re-record the video and the voiceover and make the necessary changes. We sincerely 
-hope that you will consider **OrangeCat.postman_collection.json** valid as it is essentially the same commands as the video.
-
-A complete description of what is happening on screen, with timestamps has been uploaded along with the video in the OneDrive link.
-
-Voiceover has been added to the video that explains what is happening on the screen.
-
 ## 📖 Overview
 
 Campus-Exchange is hyperlocal marketplace exclusively for students in a college community.
